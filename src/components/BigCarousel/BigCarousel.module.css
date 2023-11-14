@@ -1,0 +1,130 @@
+.item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    max-width: 1680px;
+    min-width: 1680px;
+    position: relative;
+}
+
+.item1 {
+    background-color: #61dafb;
+}
+.item2 {
+    background-color: #53ce84;
+}
+.item3 {
+    background-color: #984b2f;
+}
+
+.mainContainer{
+    height: 730px;
+    /*1680 + 41 + 41 arrow width*/
+    /*width: 1680px;*/
+    width: 1762px;
+    display: flex;
+    align-items: center;
+    margin: 24px auto;
+
+
+}
+
+.window{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    margin: 0 9px;
+    position: relative;
+}
+
+.all_pages_container{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+
+    transition: translate;
+    transition-property: transform;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out;
+}
+
+.arrow{
+    cursor: pointer;
+}
+
+
+.myslides_inner {
+    position: absolute;
+    top: 142px;
+    left: 113px;
+    width: 712px;
+}
+.myslides_title {
+    font-family: 'Pomidorko';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 70px;
+    line-height: 81px;
+    text-transform: uppercase;
+    color: #464646;
+}
+.myslides_subtitle {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    color: #6B6B6B;
+    margin: 8px 0px 20px 0;
+}
+.myslides_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 281px;
+    height: 67px;
+    background: #AD6A75;
+    border-radius: 300px;
+    font-weight: 400;
+    font-size: 20px;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+
+.dotInner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 100px;
+    height: 30px;
+    position: absolute;
+    z-index: 7;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+
+
+}
+
+.dot{
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+
+    background: rgba(173, 106, 117, 0.5);
+    border-radius: 38px;
+    display: block;
+    margin: 0 2px;
+    transition: .2s ;
+}
+
+.active, .dot:hover {
+    width: 24px;
+    height: 24px;
+    background: #AD6A75;
+    border-radius: 38px;
+}
+
+
+

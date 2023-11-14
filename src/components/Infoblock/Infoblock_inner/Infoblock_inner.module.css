@@ -1,0 +1,26 @@
+.infoblock_inner {
+    display: flex;
+    justify-content: center;
+    gap: 26px;
+}
+.infoblock_item {
+    width: 397px;
+    height: 332px;
+    position: relative;
+}
+.infoblock_item_text {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    font-family: Pomidorko;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 46px;
+    text-transform: uppercase;
+}
+.infoblock_item_text_right {
+    left: 200px;
+}
+.infoblock_item_text_bot {
+    top: 140px;
+}
