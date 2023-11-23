@@ -1,0 +1,90 @@
+.pr_catalog_filter_item {
+    position: relative;
+    padding: 30px 0 30px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.20);
+}
+
+.pr_catalog_filter_item:first-of-type {
+    padding-top: 15px;
+}
+.pr_catalog_filter_item_title {
+    color: #464646;
+    font-family: Pomidorko;
+    font-size: 20px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.pr_consists {
+    position: relative;
+}
+.pr_inner {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.pr_checkbox {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+.pr_item {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+}
+.pr_custom_checkbox {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #f0e6dd;
+    position: relative;
+    vertical-align: sub;
+    color: #6b6b6b;
+    font-family: Open Sans;
+    font-size: 16px;
+    font-weight: 400;
+    margin-right: 8px;
+    text-align: center;
+    align-items: center;
+    padding-top: 3px;
+}
+
+/*.pr_custom_checkbox:before {*/
+/*    content: '';*/
+/*    width: 17px;*/
+/*    height: 13px;*/
+/*    display: inline-block;*/
+/*    background-image: url('../../../assets/icons/filter/galochka.svg');*/
+/*    background-size: contain;*/
+/*    background-repeat: no-repeat;*/
+/*    position: absolute;*/
+/*    left: 50%;*/
+/*    top: 50%;*/
+/*    transform: translate(-50%, -50%) scale(0);*/
+/*    transition: 0.2s ease-in;*/
+/*}*/
+
+/*.pr_checkbox:checked + .pr_custom_checkbox:before {*/
+/*    transform: translate(-50%, -50%) scale(1);*/
+/*}*/
+/*.pr_checkbox:focus + .pr_custom_checkbox {*/
+/*    box-shadow: 0px 0px 0px 0px, 0px 0px 10px #f0e6dd;*/
+/*}*/
+
+.pr_custom_img{
+        width: 17px;
+        height: 13px;
+        transition: 0.2s ease-in;
+}
+
+.pr_label {
+    color: #6b6b6b;
+    font-family: Open Sans;
+    font-size: 16px;
+    font-weight: 400;
+}

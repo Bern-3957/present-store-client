@@ -36,7 +36,6 @@ const BigCarousel = (props) => {
             <img className={s.arrow} onClick={()=>{handleLeftArrowClick()
                 }} src={prev} alt="prev"/>
             <div className={s.window}>
-
                 <div className={s.all_pages_container} style={{transform: `translateX(${offset}px)`}}>
 
                         <div className={`${s.item} ${s.item1}`}>
@@ -66,12 +65,10 @@ const BigCarousel = (props) => {
                             </div>
                         </div>
                     </div>
-
             </div>
             <div className={s.dotInner}>
                 <span className={`${s.dot} `} onClick={()=>{
                     SetChooselide(1)
-
                 }}></span>
                 <span className={`${s.dot} `} onClick={()=>{
                     SetChooselide(2)

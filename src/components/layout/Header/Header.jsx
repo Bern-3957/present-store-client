@@ -1,7 +1,8 @@
 import React from "react";
 import hurt from './../../../assets/icons/header/hurt.svg'
 import s from './Header.module.css'
-import {NavLink} from "react-router-dom";
+import {Link} from "react-router-dom";
+import {ROUTES} from "../../../utils/routes";
 
 const Header = (props) =>{
     const a_style = {
@@ -14,11 +15,11 @@ const Header = (props) =>{
                         <div className={s.header_main}>
                             <img className={s.header_main_img} src={hurt} alt="hurt"/>
                             {/*<a href="#" style={a_style}>Главная</a>*/}
-                            <NavLink to={'/index'} style={a_style}>Главная</NavLink>
+                            <Link to={ROUTES.HOME} style={a_style}>Главная</Link>
 
                         </div>
                         {/*<a href="#" className={s.header_button}>Каталог подарков</a>*/}
-                        <NavLink to={'/firstcatalog'} className={s.header_button}>Каталог подарков</NavLink>
+                        <Link to={ROUTES.CATALOG} className={s.header_button}>Каталог подарков</Link>
                         <nav className={s.header_nav}>
                             <a className={s.header_nav_item} href="#">О нас</a>
                             <a className={s.header_nav_item} href="#">Доставка</a>

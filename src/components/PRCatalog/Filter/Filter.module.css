@@ -1,0 +1,41 @@
+.pr_catalog_filter {
+    margin-top: 95px;
+    width: 255px;
+    position: relative;
+}
+.pr_catalog_filter_inner {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.pr_catalog_filter_title {
+    color: #464646;
+    font-family: Pomidorko;
+    font-size: 32px;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 5px;
+}
+.pr_catalog_filter_clean {
+    display: inline-block;
+    color: #6b6b6b;
+    font-family: Open Sans;
+    font-size: 16px;
+    font-weight: 400;
+    text-decoration: underline;
+    margin: 0 0 0 100px;
+}
+
+.pr_catalog_filter:after {
+    display: block;
+    content: "";
+    width: 1px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.20);
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+

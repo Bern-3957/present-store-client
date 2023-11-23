@@ -1,0 +1,27 @@
+.products{
+    width: 1425px;
+    margin-top: 50px;
+}
+
+.products_title{
+    color: #464646;
+    font-family: Pomidorko;
+    font-size: 48px;
+    font-weight: 400;
+    text-transform: uppercase;
+
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.products_inner{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+
+    align-items: center;
+    padding: 30px 0 80px 82px;
+    position: relative;
+    min-height: 700px;
+
+}

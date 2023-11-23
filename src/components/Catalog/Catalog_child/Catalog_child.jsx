@@ -17,6 +17,8 @@ import item11 from "./../../../assets/images/catalog/11.jpeg"
 import item12 from "./../../../assets/images/catalog/12.jpeg"
 import item13 from "./../../../assets/images/catalog/13.jpeg"
 import item14 from "./../../../assets/images/catalog/14.jpeg"
+import {Link} from "react-router-dom";
+import {ROUTES} from "../../../utils/routes";
 
 let catalog_child_data = [
     {title: 'Новый год', img: item1},
@@ -41,7 +43,7 @@ const Catalog_child = (props) => {
             <div className={s.catalog_child_inner}>
                 {catalogElements}
                 <div className={s.catalog_child_item_xl}>
-                    <a href="#" className={s.catalog_child_item_xl_text}>Все подарки</a>
+                    <Link to={ROUTES.PRCATALOG} className={s.catalog_child_item_xl_text}>Все подарки</Link>
                 </div>
             </div>
         </div>
