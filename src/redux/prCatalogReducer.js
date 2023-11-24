@@ -63,7 +63,7 @@ let InitialState = {
 export const prCatalogReducer = (state = InitialState, action) => {
     switch (action.type) {
         case SET_PRESENT_CONSISTS_CHECKBOX:
-            const newState = {
+            return {
                 ...state,
                 sideBar: {
                     ...state.sideBar,
@@ -72,33 +72,6 @@ export const prCatalogReducer = (state = InitialState, action) => {
                     }),
                 },
             }
-            const products = []
-            if (state.filters.category !== null) {
-                debugger;
-                // const currentCategoryProducts = state.products.filter(p=>p.category_id=state.filters.category)
-                // const currentCategoryProducts = state.products.filter(p=>p.category_id=state.filters.category)
-
-                const currentCategoryProducts = state.products.map((p) => {
-                    if (p.category_id === state.filters.category) {
-                        products.push({...p})
-                    }
-                })
-            }
-
-
-            const filteredProducts = products.filter(product => {
-                debugger;
-                if (product.isEdible && newState.sideBar.present_consists.find(ch => ch.id === 1)?.isActive) {
-                    return true;
-                } else if (!product.isEdible && newState.sideBar.present_consists.find(ch => ch.id === 2)?.isActive) {
-                    return true;
-                }
-                return false;
-            });
-            newState.filteredProducts = filteredProducts;
-
-            return newState;
-
         case SET_PURPOSES_CHECKBOX:
             return {
                 ...state,

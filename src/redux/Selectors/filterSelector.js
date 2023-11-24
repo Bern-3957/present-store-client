@@ -69,7 +69,7 @@ export const getFilteredProducts = (state) => {
 
 
 
-// ---------------------------------------------------------Код чат-jpt
+// ------------------------------------------------------------------------------------------Код чат-jpt
 // export const getFilteredProducts = (state) => {
 //     const { products, sideBar } = state.prCatalogPage;
 //
