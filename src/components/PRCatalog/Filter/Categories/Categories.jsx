@@ -16,7 +16,7 @@ const Categories = (props) => {
             <div className={s.pr_catalog_filter_category}>
                 {/*<a className={`${s.pr_catalog_filter_category_item}`}>Все подарки</a>*/}
                 {props.categories.map((category) => {
-                    if (category.subcategories.length === 0) {
+                    if (category) {
                         return <Link to={`${ROUTES.PRCATALOG}/:${category.slug}`} onClick={() => props.setCurrentCategory(category.id)} href="#" className={`${s.pr_catalog_filter_category_item} `}>{category.title}</Link>
                     } else {
                         return <div className={`${s.select} ${isActive ? s.is_active : ''}`}>

@@ -1,4 +1,4 @@
-
+/*
 // selectors.js
 
 // -------------------мой код
@@ -134,3 +134,6 @@ export const getFilteredProducts = (state) => {
 //
 //     return categoryIsActive && checkboxIsActive && purposeIsActive && packageIsActive;
 // });
+
+
+ */

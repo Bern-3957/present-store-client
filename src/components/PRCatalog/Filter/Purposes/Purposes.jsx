@@ -17,7 +17,7 @@ const Purposes = (props) => {
                     {props.checkboxes.map((checkbox) => {
                         return <label className={s.pr_item}>
                             <input onChange={() => changeCheckbox(checkbox.id)} type="checkbox" className={s.pr_checkbox} id={checkbox.id + checkbox.title}/>
-                            <span className={s.pr_custom_checkbox}>{checkbox.isActive && (<img className={s.pr_custom_img} src={galochka} alt="1"/>)}</span>
+                            <span className={s.pr_custom_checkbox}>{props.activeFilters.includes(checkbox.id) ?(<img className={s.pr_custom_img} src={galochka} alt="1"/>):''}</span>
                             <label htmlFor={checkbox.id + checkbox.title} className={s.pr_label}>{checkbox.title}</label>
                         </label>
                     })}

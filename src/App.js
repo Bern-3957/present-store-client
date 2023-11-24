@@ -11,7 +11,6 @@ import PRCatalog from "./components/PRCatalog/PRCatalog";
 
 function App() {
     return (<div>
-            {/*<Layout/>*/}
             <Routes>
                 <Route path='/' element={<Layout/>}>
                     <Route index element={

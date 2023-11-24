@@ -1,4 +1,4 @@
-import products from "../components/PRCatalog/Products/Products";
+/* import products from "../components/PRCatalog/Products/Products";
 import product from "../components/PRCatalog/Products/Product/Product";
 
 const SET_PRESENT_CONSISTS_CHECKBOX = 'SET_PRESENT_CONSISTS_CHECKBOX'
@@ -176,3 +176,6 @@ export const setCurrentCategoryAC = (category_id) => {
 // const filteredProducts = isEdibleCheckbox
 //     ? state.products.filter(product => product.isEdible)
 //     : state.products;
+
+
+ */

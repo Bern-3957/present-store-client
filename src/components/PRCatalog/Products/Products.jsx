@@ -5,7 +5,7 @@ import ProductContainer from "./Product/ProductContainer";
 const Products = (props) => {
     return <div className={s.products}>
         <div className={s.products_title}>Каталог подарков</div>
-        <SortSelectContainer/>
+        {/*<SortSelectContainer/>*/}
         <div className={s.products_inner}>
             <ProductContainer/>
         </div>

@@ -11,10 +11,10 @@ const Filter = (props) => {
             <h2 className={s.pr_catalog_filter_title}>Фильтр</h2>
             <div className={s.pr_catalog_filter_inner}>
                 <a href="#" className={s.pr_catalog_filter_clean}>Очистить фильтр</a>
-                <Categories categories={props.categories} setCurrentCategory={props.setCurrentCategory}/>
-                <Consists checkboxes={props.pr_consists} setPresentConsistsCheckbox={props.setPresentConsistsCheckbox}/>
-                <Purposes checkboxes={props.purposes} setPurposesCheckbox={props.setPurposesCheckbox}/>
-                <Package checkboxes={props.packages} setPackagesCheckbox={props.setPackagesCheckbox}/>
+                <Categories categories={props.categories} setCurrentCategory={props.setCurrentCategory} activeFilters={props.activeFilters}/>
+                <Consists checkboxes={props.pr_consists} setPresentConsistsCheckbox={props.setPresentConsistsCheckbox} activeEdible={props.activeEdible}/>
+                <Purposes checkboxes={props.purposes} setPurposesCheckbox={props.setPurposesCheckbox} activeFilters={props.activeFilters}/>
+                <Package checkboxes={props.packages} setPackagesCheckbox={props.setPackagesCheckbox} activeFilters={props.activeFilters}/>
             </div>
         </div>
     )

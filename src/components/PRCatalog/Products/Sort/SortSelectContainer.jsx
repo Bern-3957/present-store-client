@@ -1,12 +1,29 @@
 import React from "react";
-import {connect} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import SortSelect from "./SortSelect";
-import {setCurrentSortSelectAC} from "../../../../redux/prCatalogReducer";
+import {setCurrentSortSelectAC} from "../../../../store/actions/actionCreators";
 
 
+const SortSelectContainer = ()=> {
+    const dispatch = useDispatch();
+    const sortSelect = useSelector((state)=>state.filters.sortSelect)
+
+    const setCurrentSortSelect = (select_item_id)=>{
+        dispatch(setCurrentSortSelectAC(select_item_id))
+    }
+
+    return <SortSelect sortSelect={sortSelect} setCurrentSortSelect={setCurrentSortSelect}/>
+}
+
+export default SortSelectContainer;
+
+
+
+
+/*
 const mapStateToProps = (state) => {
     return {
-        sortSelect: state.prCatalogPage.sortSelect,
+        sortSelect: state.filters.sortSelect,
     }
 }
 
@@ -21,3 +38,4 @@ const mapDispatchToProps = (dispatch) => {
 
 const SortSelectContainer = connect(mapStateToProps, mapDispatchToProps)(SortSelect);
 export default SortSelectContainer;
+*/
