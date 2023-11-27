@@ -10,9 +10,10 @@ const ProductContainer = () => {
     const activeCategory = useSelector((state) => state.filters.sideBar.activeCategory)
     const activeFilters = useSelector((state) => state.filters.sideBar.activeFilters)
     const activeEdible = useSelector((state) => state.filters.sideBar.activeEdible)
+    const activeSortSelect = useSelector((state) => state.filters.activeSortSelect)
 
     console.log('activeCategory',activeCategory)
-    const products = getFilteredProducts(all_products, activeCategory, activeFilters, activeEdible)
+    const products = getFilteredProducts(all_products, activeCategory, activeFilters, activeEdible, activeSortSelect)
     const increment = (select_item_id) => {
         dispatch(incrementProductCountAC(select_item_id));
     };

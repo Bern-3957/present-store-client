@@ -2,7 +2,7 @@ import {
     DECREMENT_PRODUCT_COUNT,
     INCREMENT_PRODUCT_COUNT,
     SET_CURRENT_CATEGORY,
-    SET_CURRENT_SORT_SELECT,
+    SET_SORT_SELECT,
     SET_PACKAGES_CHECKBOX,
     SET_PRESENT_CONSISTS_CHECKBOX,
     SET_PURPOSES_CHECKBOX
@@ -17,8 +17,8 @@ export const setPurposesCheckboxAC = (checkbox_id) => {
 export const setPackagesCheckboxAC = (checkbox_id) => {
     return {type: SET_PACKAGES_CHECKBOX, checkbox_id}
 }
-export const setCurrentSortSelectAC = (select_item_id) => {
-    return {type: SET_CURRENT_SORT_SELECT, select_item_id}
+export const setSortSelectAC = (select_item_id) => {
+    return {type: SET_SORT_SELECT, select_item_id}
 }
 export const incrementProductCountAC = (product_id) => {
     return {type: INCREMENT_PRODUCT_COUNT, product_id}

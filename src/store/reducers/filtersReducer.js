@@ -1,6 +1,6 @@
 import {
     SET_CURRENT_CATEGORY,
-    SET_CURRENT_SORT_SELECT,
+    SET_SORT_SELECT,
     SET_PACKAGES_CHECKBOX,
     SET_PRESENT_CONSISTS_CHECKBOX,
     SET_PURPOSES_CHECKBOX
@@ -12,6 +12,7 @@ let InitialState = {
         activeFilters: [],
         activeEdible: null,
     },
+    activeSortSelect: 1,
 };
 
 export const filtersReducer = (state = InitialState, action) => {
@@ -46,12 +47,10 @@ export const filtersReducer = (state = InitialState, action) => {
                         : [...state.sideBar.activeFilters, action.checkbox_id]
                 }
             }
-        case SET_CURRENT_SORT_SELECT:
+        case SET_SORT_SELECT:
             return {
                 ...state,
-                sortSelect: state.sortSelect.map(s => {
-                    return s.id === action.select_item_id ? {...s, isCurrent: !s.isCurrent} : {...s, isCurrent: false}
-                })
+                activeSortSelect: action.select_item_id,
             }
 
         case SET_CURRENT_CATEGORY:

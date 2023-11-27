@@ -4,13 +4,13 @@ import otkrivashka from "./../../../../assets/icons/filter/Otkrivashka.svg"
 
 const SortSelect = (props) => {
     const [isBodyVisible, setBodyVisible] = useState(false);
-    const currentSortOption = props.sortSelect.find(item => item.isCurrent);
+    const currentSortOption = props.sortSelect.find(item => item.id === props.activeSortSelectID);
 
     const openSelect =()=>{
         setBodyVisible(!isBodyVisible);
     }
     const setNewCurrentItem = (select_item_id) =>{
-        props.setCurrentSortSelect(select_item_id)
+        props.setSortSelect(select_item_id)
         setBodyVisible(!isBodyVisible)
     }
 
