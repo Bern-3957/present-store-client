@@ -5,7 +5,8 @@ import {
     SET_SORT_SELECT,
     SET_PACKAGES_CHECKBOX,
     SET_PRESENT_CONSISTS_CHECKBOX,
-    SET_PURPOSES_CHECKBOX
+    SET_PURPOSES_CHECKBOX,
+    CLOSE_MODAL, OPEN_MODAL,
 } from "./actionTypes";
 
 export const setPresentConsistsCheckboxAC = (checkbox_id) => {
@@ -28,4 +29,11 @@ export const decrementProductCountAC = (product_id) => {
 }
 export const setCurrentCategoryAC = (category_id) => {
     return {type: SET_CURRENT_CATEGORY, category_id}
+}
+export const openModalAC = () => {
+    return {type: OPEN_MODAL}
+}
+
+export const closeModalAC = () => {
+    return {type: CLOSE_MODAL}
 }

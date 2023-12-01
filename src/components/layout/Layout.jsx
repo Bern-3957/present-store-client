@@ -1,13 +1,13 @@
 import React from "react";
-import Upheader from "./Upheader/Upheader";
 import Header from "./Header/Header"
 import Footer from "./Footer/Footer";
 import {Outlet} from "react-router-dom";
+import UpheaderContainer from "./Upheader/UpheaderContainer";
 
 const Layout = (props) => {
     return (
         <div>
-            <Upheader/>
+            <UpheaderContainer/>
             <Header/>
             <Outlet />
             <Footer/>

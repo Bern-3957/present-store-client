@@ -7,10 +7,13 @@ import InfoBlock from "./components/Infoblock/Infoblock";
 import {ROUTES} from "./utils/routes";
 import Catalog from "./components/Catalog/Catalog";
 import PRCatalog from "./components/PRCatalog/PRCatalog";
+import ModalBaseContainer from "./components/Modals/modalBaseContainer";
+import {useSelector} from "react-redux";
 
 
 function App() {
-    return (<div>
+    const isModalActive = useSelector(state => state.modal.isModalActive)
+    return (<div className="app">
             <Routes>
                 <Route path='/' element={<Layout/>}>
                     <Route index element={
@@ -25,7 +28,7 @@ function App() {
 
                 </Route>
             </Routes>
-
+            {isModalActive && <ModalBaseContainer/>}
         </div>
     );
 }

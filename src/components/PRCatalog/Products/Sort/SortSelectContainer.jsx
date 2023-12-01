@@ -6,7 +6,6 @@ import { sortSelect } from './../../../../constants/filters';
 
 
 const SortSelectContainer = ()=> {
-    debugger;
     const dispatch = useDispatch();
     const activeSortSelectID = useSelector((state)=>state.filters.activeSortSelect)
 

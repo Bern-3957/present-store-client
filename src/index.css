@@ -24,9 +24,9 @@ body{
   font-size: 1rem;
   color: #000;
 
-  &.no-scroll{
-    overflow: hidden;
-  }
+}
+body.no-scroll {
+  overflow: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -43,7 +43,9 @@ p{
   box-sizing: border-box;
 }
 
-
+.app{
+  position: relative;
+}
 .container {
   width: 100%;
   max-width: 1680px;
@@ -55,3 +57,4 @@ p{
   max-width: 1762px;
   margin: 0 auto;
 }
+
