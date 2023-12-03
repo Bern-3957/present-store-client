@@ -6,16 +6,17 @@ import {closeModalAC, openModalAC} from "../../store/actions/actionCreators";
 
 const ModalBaseContainer = () => {
     const isModalActive = useSelector(state => state.modal.isModalActive)
+    const currentModalID = useSelector(state => state.modal.currentModalID)
     const dispatch = useDispatch()
 
     const closeModal = ()  =>{
         dispatch(closeModalAC())
     }
 
-    const openModal = ()  =>{
-        dispatch(openModalAC())
+    const openModal = (currentModalID)  =>{
+        dispatch(openModalAC(currentModalID))
     }
-    return  <ModalBase isModalActive={isModalActive} closeModal={closeModal} openModal={openModal}/>
+    return  <ModalBase isModalActive={isModalActive} currentModalID={currentModalID} closeModal={closeModal} openModal={openModal}/>
 }
 
 

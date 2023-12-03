@@ -30,8 +30,8 @@ export const decrementProductCountAC = (product_id) => {
 export const setCurrentCategoryAC = (category_id) => {
     return {type: SET_CURRENT_CATEGORY, category_id}
 }
-export const openModalAC = () => {
-    return {type: OPEN_MODAL}
+export const openModalAC = (currentModalID) => {
+    return {type: OPEN_MODAL, currentModalID}
 }
 
 export const closeModalAC = () => {

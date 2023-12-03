@@ -73,7 +73,9 @@ const Upheader = (props) =>{
                     </div>
                     <div className={s.upheader_buttons}>
                         <a href="#" className={s.upheader_buttons_basket}><img src={basket} alt="basket"/></a>
-                        <span onClick={props.openModal} className={s.upheader_buttons_login}><img src={login} alt="login"/>Войти</span>
+                        <span onClick={()=>{
+                            props.openModal('auth-modal')
+                        }} className={s.upheader_buttons_login}><img src={login} alt="login"/>Войти</span>
                     </div>
                 </div>
             </div>

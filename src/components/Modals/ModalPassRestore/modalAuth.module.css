@@ -1,0 +1,127 @@
+.auth_img {
+
+}
+
+.auth_data {
+    margin-top: 20px;
+}
+
+.ix {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    transition: .7s;
+}
+
+.ix:hover{
+    transform: scale(1.2) rotate(7100deg);
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.log_in_btn {
+    display: flex;
+    width: 257px;
+    padding: 20px 40px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 800px;
+
+
+    color: #6B6B6B;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+    border: 0;
+}
+.log_in_btn.isActive{
+    background: linear-gradient(0deg, #FED8D9 0%, #FED8D9 100%), #A5A5A5;
+}
+
+.sign_up_btn {
+    display: flex;
+    width: 257px;
+    padding: 20px 40px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    border-radius: 800px;
+    border: 1px solid #A5A5A5;
+
+    color: #6B6B6B;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+    border: 0;
+}
+
+.auth_form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 347px;
+    margin: 0 auto;
+    margin-top: 30px;
+
+}
+
+.title {
+    color: #464646;
+    text-align: center;
+    font-family: Pomidorko;
+    font-size: 32px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.phone_number {
+    display: flex;
+    width: 347px;
+    padding: 15px 20px;
+    align-items: center;
+    gap: 8px;
+}
+
+.password {
+    display: flex;
+    width: 347px;
+    height: 52px;
+    padding: 15px 20px;
+    align-items: center;
+    gap: 8px;
+}
+
+.checkbox_inner {
+    margin: 21px 0;
+}
+
+.checkbox {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    border: 2px solid #F0E6DD;
+}
+
+.personal_data_chLabal {
+    color: #6B6B6B;
+    font-family: Open Sans;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.forgot_pass {
+    margin-top: 21px;
+
+    color: #6B6B6B;
+    text-align: center;
+    font-family: Open Sans;
+    font-size: 16px;
+    font-weight: 400;
+    text-decoration-line: underline;
+}
