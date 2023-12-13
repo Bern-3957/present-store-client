@@ -6,6 +6,8 @@ import ModalReg from "./Reg/modalReg";
 import ModalPassRestore from "./ModalPassRestore/modalPassRestore";
 import regImg from "../../assets/images/AuthReg/Rectangle 33.png";
 import ix from "../../assets/icons/AuthReg/ix.svg";
+import ModalSuccessReg from "./Reg/modalSuccessReg";
+import ModalSuccessAuth from "./Auth/modalSuccessAuth";
 
 
 const ModalBase = (props) => {
@@ -43,9 +45,20 @@ const ModalBase = (props) => {
                     }} className={`${s.log_in_btn} ${props.isModalActive && props.currentModalID === 'reg-modal' && s.isActive}`}>Зарегистрироваться
                     </button>
                 </div>
-                {props.currentModalID === 'auth-modal' ? <ModalAuth openModal={props.openModal}/>
-                    : props.currentModalID === 'reg-modal' ? <ModalReg />
-                        : <ModalPassRestore/>
+                {props.currentModalID === 'auth-modal' ? <ModalAuth openModal={props.openModal}
+                                                                    closeModal={props.closeModal}
+                                                                    setUserInfo={props.setUserInfo}
+                                                                    setUserToken={props.setUserToken}
+                                                                    setIsUserAuth={props.setIsUserAuth}
+                    />
+                    : props.currentModalID === 'reg-modal' ? <ModalReg openModal={props.openModal}
+                                                                       closeModal={props.closeModal}
+                                                                       setUserInfo={props.setUserInfo}
+                                                                       setUserToken={props.setUserToken}
+                                                                       setIsUserAuth={props.setIsUserAuth}/>
+                        : props.currentModalID === 'pass-restore-modal' ? <ModalPassRestore/>
+                            : props.currentModalID === 'reg-success-modal' ? <ModalSuccessReg closeModal={props.closeModal}/>
+                                : props.currentModalID === 'auth-success-modal' ? <ModalSuccessAuth closeModal={props.closeModal}/> : <p></p>
                 }
             </div>
         </div>

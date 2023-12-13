@@ -1,0 +1,68 @@
+.form{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 54px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.formItem{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.title{
+    color: #464646;
+    font-family: Pomidorko;
+    font-size: 20px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 8px  ;
+}
+
+.input{
+    display: flex;
+    width: 347px;
+    height: 52px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #D6B3B1;
+    padding: 15px 20px;
+}
+
+.checkboxInner{
+    display: flex;
+    gap: 8px;
+    width: 347px;
+}
+
+.personalCheckbox{
+    width: 24px;
+    height: 24px;
+    border: 2px solid #F0E6DD;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: row;
+    gap: 46px;
+}
+
+.personalAreaButton{
+    display: flex;
+    width: 347px;
+    padding: 20px 40px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    border-radius: 300px;
+    border: 2px solid #AD6A75;
+
+    font-family: Open Sans;
+    font-size: 16px;
+    font-weight: 400;
+    background-color: white;
+}

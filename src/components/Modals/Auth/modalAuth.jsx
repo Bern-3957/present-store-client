@@ -1,29 +1,9 @@
 import React from "react";
-import authImg from "../../../assets/images/AuthReg/Rectangle 33.png"
-import eye from "../../../assets/icons/AuthReg/eye.svg"
-import ix from "../../../assets/icons/AuthReg/ix.svg"
+
 import s from "./../modalBase.module.css"
 import {useForm} from "react-hook-form";
+import {userAPI} from "../../../api/api";
 
-
-// const ModalAuth = (props) => {
-//
-//     return <div className={s.auth_form}>
-//                 <h2 className={s.title}>Войдите в свой аккаунт</h2>
-//                 <input placeholder="Номер телефона" type="text" className={s.phone_number}/>
-//                 <input placeholder="Пароль" type="text" className={s.password}/>
-//                 <div className={s.checkbox_inner}>
-//                     <input  id="personal_data_ch" type="checkbox" className={s.checkbox}/>
-//                     <label className={s.personal_data_chLabal} htmlFor="personal_data_ch" >Я соглашаюсь
-//                         с Положением о персональных данных и конфиденциальности.</label>
-//                 </div>
-//                 <button className={s.log_in_btn}>Войти</button>
-//                 <a onClick={()=>{
-//                     props.openModal('passRestore-modal')
-//                 }} className={s.forgot_pass}>Забыли пароль?</a>
-//             </div>
-// }
-// export default ModalAuth;
 
 const ModalAuth = (props) => {
     const {
@@ -34,20 +14,34 @@ const ModalAuth = (props) => {
     } = useForm({mode: "onBlur"});
 
     const onSubmit = (data) => {
-        alert(JSON.stringify(data))
-        reset();
+        userAPI.authUser(data).then(response => {
+            props.setUserToken(response.data.auth_token)
+            userAPI.aboutUser(response.data.auth_token).then(userInfo => {
+                props.setIsUserAuth(true)
+                props.setUserInfo(userInfo.data)
+            }).catch(error => {
+                    console.error('Error fetching user info:', error);
+                });
+        }).catch(error => {
+            console.error('Error login:', error);
+        })
+        .finally(() => {
+            reset();
+            props.closeModal();
+            props.openModal('auth-success-modal')
+        });
     }
 
     return <form onSubmit={handleSubmit(onSubmit)} className={s.auth_form}>
         <h2 className={s.title}>Войдите в свой аккаунт</h2>
 
-        <input
-            {...register('phone_number',
-                {required: "Поле обязательно к заполнению",
-                        minLength: {value: 5, message: "от 5 символов"}
+        <input {...register('username',
+                {
+                    required: "Поле обязательно к заполнению",
+                    minLength: {value: 5, message: "от 5 символов"}
                 })}
-            placeholder="Номер телефона" type="text" className={s.phone_number}/>
-        <div>{errors?.phone_number && <p>{errors?.phone_number?.message || "Error!"}</p>}</div>
+            placeholder="Имя пользователя" type="text" className={s.phone_number}/>
+        <div>{errors?.username && <p>{errors?.username?.message || "Error!"}</p>}</div>
 
         <input {...register('password', {
             required: "Поле обязательно к заполнению",
@@ -66,7 +60,7 @@ const ModalAuth = (props) => {
 
         <button type="submit" disabled={!isValid} className={s.log_in_btn}>Войти</button>
         <a onClick={() => {
-            props.openModal('passRestore-modal')
+            props.openModal('pass-restore-modal')
         }} className={s.forgot_pass}>Забыли пароль?</a>
     </form>
 }

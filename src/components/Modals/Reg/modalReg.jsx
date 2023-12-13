@@ -1,43 +1,67 @@
-import React from "react";
-import regImg from "../../../assets/images/AuthReg/Rectangle 33.png"
-import eye from "../../../assets/icons/AuthReg/eye.svg"
-import ix from "../../../assets/icons/AuthReg/ix.svg"
+import React, {useState} from "react";
 import s from "./../modalBase.module.css"
 import {useForm} from "react-hook-form";
+import axios from "axios";
+import ModalSuccessReg from "./modalSuccessReg";
+import {userAPI} from "../../../api/api";
 
 const ModalReg = (props) => {
-    const {register,
+    const [errorMessage, setErrorMessage] = useState(null);
+
+    const showError = (message) =>{
+        setErrorMessage(message)
+    }
+    const {
+        register,
         formState: {errors, isValid},
         handleSubmit,
-        reset,
     } = useForm({mode: "onBlur"})
 
-    const onSubmit = (data) =>{
-        alert(JSON.stringify(data))
-        reset()
+    const onSubmit = (data) => {
+        userAPI.regUser(data)
+            .then(response => {
+                return userAPI.authUser(data)
+            })
+            .then((tokenResponse) => {
+                props.setUserToken(tokenResponse.data.auth_token)
+                return userAPI.aboutUser(tokenResponse.data.auth_token)
+            })
+            .then(userInfo => {
+                props.setIsUserAuth(true)
+                props.setUserInfo(userInfo.data)
+                props.closeModal()
+                props.openModal('reg-success-modal')
+            })
+            .catch(error => {
+                console.error('Ошибка во время регистрации', error)
+                showError('Введите корректные данные!')
+            });
+
     }
 
     return <form onSubmit={handleSubmit(onSubmit)} className={s.auth_form}>
-                <h2 className={s.title}>Зарегистрируйтесь</h2>
-                <input {...register('name', {required: true})} placeholder="Имя" type="text" className={s.password}/>
-                <input {...register('phone_number', {required: true})} placeholder="Номер телефона" type="text" className={s.phone_number}/>
-                <input {...register('email', {required: true})} placeholder="E-mail" type="text" className={s.password}/>
-                <input {...register('password', {required: true})} placeholder="Пароль" type="text" className={s.password}/>
-                <div className={s.checkbox_inner}>
-                    <div>
-                        <input {...register('newsCheckbox', {required: true})} id="personal_data_ch" type="checkbox" className={s.checkbox}/>
-                        <label className={s.personal_data_chLabal} htmlFor="personal_data_ch">Согласен(-на)
-                            на получение новостной рассылки (дает постоянную скидку 5%)</label>
-                    </div>
-                    <div>
-                        <input {...register('personDataCheckbox', {required: true})} id="personal_data_ch" type="checkbox" className={s.checkbox}/>
-                        <label className={s.personal_data_chLabal} htmlFor="personal_data_ch">Я соглашаюсь
-                            с Положением о персональных данных и конфиденциальности.</label>
-                    </div>
-                </div>
-                <button type="submit" className={s.log_in_btn}>Зарегистрироваться</button>
-                <div>{!isValid && <p>Все поля обязательны к заполнению!</p>}</div>
-            </form>
+        <h2 className={s.title}>Зарегистрируйтесь</h2>
+        <input {...register('first_name', {required: true})} placeholder="Имя" type="text" className={s.password}/>
+        <input {...register('username', {required: true})} placeholder="Имя пользователя" type="text" className={s.phone_number}/>
+        <input {...register('email', {required: true})} placeholder="E-mail" type="text" className={s.password}/>
+        <input {...register('password', {required: true})} placeholder="Пароль" type="password" className={s.password}/>
+        <input {...register('address', {required: true})} placeholder="Адрес" type="text" className={s.password}/>
+        <div className={s.checkbox_inner}>
+            <div>
+                <input {...register('consentReceiveNews', {required: true})} id="personal_data_ch" type="checkbox" className={s.checkbox}/>
+                <label className={s.personal_data_chLabal} htmlFor="personal_data_ch">Согласен(-на)
+                    на получение новостной рассылки (дает постоянную скидку 5%)</label>
+            </div>
+            <div>
+                <input {...register('consentPersonalData', {required: true})} id="personal_data_ch" type="checkbox" className={s.checkbox}/>
+                <label className={s.personal_data_chLabal} htmlFor="personal_data_ch">Я соглашаюсь
+                    с Положением о персональных данных и конфиденциальности.</label>
+            </div>
+        </div>
+        <button type="submit" className={s.log_in_btn}>Зарегистрироваться</button>
+        {/*<div>{!isValid && <p>Все поля обязательны к заполнению!</p>}</div>*/}
+        <div>{errorMessage && <p style={{fontSize: '18px', color: 'red', margin: 0}}>{errorMessage}</p>}</div>
+    </form>
 
 }
 

@@ -1,0 +1,49 @@
+.personalArea{
+    height: 1100px;
+    background: url("./../../assets/images/personalArea/back.png") center/cover no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.personalArea_inner {
+    width: 1089px;
+    height: 899px;
+    background: white;
+
+    border: .5px solid black;
+    padding: 69px 83px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 39px;
+}
+
+.title{
+    font-family: Pomidorko;
+    font-size: 48px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.menu{
+    display: flex;
+    gap: 16px;
+}
+.menu_button{
+    width: 297px;
+    height: 69px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 800px;
+    border: 1px solid #A5A5A5;
+
+    color: #6B6B6B;
+    text-align: center;
+    font-family: Open Sans;
+    font-size: 16px;
+    font-weight: 400;
+}

@@ -9,6 +9,8 @@ import Catalog from "./components/Catalog/Catalog";
 import PRCatalog from "./components/PRCatalog/PRCatalog";
 import ModalBaseContainer from "./components/Modals/modalBaseContainer";
 import {useSelector} from "react-redux";
+import PersonalArea from "./components/PersonalArea/personalArea";
+import PersonalAreaContainer from "./components/PersonalArea/personalAreaContainer";
 
 
 function App() {
@@ -25,6 +27,7 @@ function App() {
                     <Route path={ROUTES.CATALOG} element={<Catalog/>}/>
                     <Route path={ROUTES.PRCATALOG} element={<PRCatalog/>}/>
                     <Route path={`${ROUTES.PRCATALOG}/:category`} element={<PRCatalog/>}/>
+                    <Route path={`${ROUTES.PERSONAL_AREA}`} element={<PersonalAreaContainer/>}/>
 
                 </Route>
             </Routes>

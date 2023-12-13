@@ -1,7 +1,7 @@
 import React from "react";
 import ModalBase from "./modalBase";
 import {useDispatch, useSelector} from "react-redux";
-import {closeModalAC, openModalAC} from "../../store/actions/actionCreators";
+import {closeModalAC, openModalAC, setIsUserAuthAC, setUserInfoAC, setUserToken, setUserTokenAC} from "../../store/actions/actionCreators";
 
 
 const ModalBaseContainer = () => {
@@ -16,7 +16,27 @@ const ModalBaseContainer = () => {
     const openModal = (currentModalID)  =>{
         dispatch(openModalAC(currentModalID))
     }
-    return  <ModalBase isModalActive={isModalActive} currentModalID={currentModalID} closeModal={closeModal} openModal={openModal}/>
+
+    const setUserInfo = (userInfo) => {
+        dispatch(setUserInfoAC(userInfo))
+    }
+
+    const setUserToken = (userToken) =>{
+        dispatch(setUserTokenAC(userToken))
+    }
+
+    const setIsUserAuth = (isUserAuth) =>{
+        dispatch(setIsUserAuthAC(isUserAuth))
+    }
+
+    return  <ModalBase isModalActive={isModalActive}
+                       currentModalID={currentModalID}
+                       closeModal={closeModal}
+                       openModal={openModal}
+                       setUserInfo={setUserInfo}
+                       setUserToken={setUserToken}
+                       setIsUserAuth={setIsUserAuth}
+    />
 }
 
 

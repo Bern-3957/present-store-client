@@ -10,10 +10,23 @@ import telegram from './../../../assets/icons/upheader/telegram.svg'
 import whatsap from './../../../assets/icons/upheader/whatsap.svg'
 import basket from './../../../assets/icons/upheader/basket.svg'
 import login from './../../../assets/icons/upheader/login.svg'
+import userIcon from './../../../assets/icons/upheader/userIcon.svg'
 
 import s from './Upheader.module.css'
+import axios from "axios";
+import {Link} from "react-router-dom";
+import {ROUTES} from "../../../utils/routes";
 
-const Upheader = (props) =>{
+const Upheader = (props) => {
+    const logout = () => {
+        axios.post('http://127.0.0.1:8000/auth/token/logout/', {}, {
+            headers: {
+                'Authorization': `Token ${props.userToken}`
+            }
+        }).finally(()=>{
+            props.setIsUserAuth(false)
+        })
+    }
     return (
         <div className={s.upheader}>
             <div className="container">
@@ -72,10 +85,23 @@ const Upheader = (props) =>{
                         </div>
                     </div>
                     <div className={s.upheader_buttons}>
-                        <a href="#" className={s.upheader_buttons_basket}><img src={basket} alt="basket"/></a>
-                        <span onClick={()=>{
-                            props.openModal('auth-modal')
-                        }} className={s.upheader_buttons_login}><img src={login} alt="login"/>Войти</span>
+                        <button onClick={() => {
+                            logout()
+                        }} className={s.upheader_buttons_basket}><img src={basket} alt="basket"/></button>
+                        {!props.isUserAuth ?
+                            <span onClick={() => {
+                                props.openModal('auth-modal')
+                            }} className={s.upheader_buttons_login}><img src={login} alt="login"/>Войти</span>
+                            : <span className={s.upheader_buttons_login}>
+
+                                <Link to={ROUTES.PERSONAL_AREA}><img src={userIcon} alt="userIcon"/></Link>
+                                <Link to={ROUTES.PERSONAL_AREA} style={{
+                                    fontWeight: 400,
+                                    fontSize: '16px',
+                                    color: 'white',
+                                    textDecoration: 'none',
+                                }}>{props.userInfo.username}</Link>
+                            </span>}
                     </div>
                 </div>
             </div>
