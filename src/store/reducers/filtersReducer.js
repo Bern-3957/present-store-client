@@ -9,7 +9,10 @@ import {
 let InitialState = {
     sideBar: {
         activeCategory: null,
-        activeFilters: [],
+        activeFilters: {
+            purposes: [],
+            packages: [],
+        },
         activeEdible: null,
     },
     activeSortSelect: 1,
@@ -25,26 +28,52 @@ export const filtersReducer = (state = InitialState, action) => {
                     activeEdible: action.checkbox_id === 'pre-123'
                 },
             }
+        // case SET_PURPOSES_CHECKBOX:
+        //     return {
+        //         ...state,
+        //         sideBar: {
+        //             ...state.sideBar,
+        //             // activeFilters: [state.sideBar.activeFilters[0], action.checkbox_id],
+        //             activeFilters: state.sideBar.activeFilters.includes(action.checkbox_id)
+        //                 ? state.sideBar.activeFilters.filter(id => id !== action.checkbox_id)
+        //                 : [...state.sideBar.activeFilters, action.checkbox_id]
+        //         }
+        //     }
         case SET_PURPOSES_CHECKBOX:
             return {
                 ...state,
                 sideBar: {
                     ...state.sideBar,
-                    // activeFilters: [state.sideBar.activeFilters[0], action.checkbox_id],
-                    activeFilters: state.sideBar.activeFilters.includes(action.checkbox_id)
-                        ? state.sideBar.activeFilters.filter(id => id !== action.checkbox_id)
-                        : [...state.sideBar.activeFilters, action.checkbox_id]
+                    activeFilters: {
+                        ...state.sideBar.activeFilters,
+                        purposes: state.sideBar.activeFilters.purposes.includes(action.checkbox_id)
+                            ? state.sideBar.activeFilters.purposes.filter(id => id !== action.checkbox_id)
+                            : [...state.sideBar.activeFilters.purposes, action.checkbox_id]
+                    }
                 }
             }
+        // case SET_PACKAGES_CHECKBOX:
+        //     return {
+        //         ...state,
+        //         sideBar: {
+        //             ...state.sideBar,
+        //             // activeFilters: [state.sideBar.activeFilters[0], action.checkbox_id],
+        //             activeFilters: state.sideBar.activeFilters.includes(action.checkbox_id)
+        //                 ? state.sideBar.activeFilters.filter(id => id !== action.checkbox_id)
+        //                 : [...state.sideBar.activeFilters, action.checkbox_id]
+        //         }
+        //     }
         case SET_PACKAGES_CHECKBOX:
             return {
                 ...state,
                 sideBar: {
                     ...state.sideBar,
-                    // activeFilters: [state.sideBar.activeFilters[0], action.checkbox_id],
-                    activeFilters: state.sideBar.activeFilters.includes(action.checkbox_id)
-                        ? state.sideBar.activeFilters.filter(id => id !== action.checkbox_id)
-                        : [...state.sideBar.activeFilters, action.checkbox_id]
+                    activeFilters:{
+                        ...state.sideBar.activeFilters,
+                        packages: state.sideBar.activeFilters.packages.includes(action.checkbox_id)
+                            ? state.sideBar.activeFilters.packages.filter(id => id !== action.checkbox_id)
+                            : [...state.sideBar.activeFilters.packages, action.checkbox_id]
+                    }
                 }
             }
         case SET_SORT_SELECT:

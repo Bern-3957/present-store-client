@@ -62,7 +62,6 @@ const ModalReg = (props) => {
         {/*<div>{!isValid && <p>Все поля обязательны к заполнению!</p>}</div>*/}
         <div>{errorMessage && <p style={{fontSize: '18px', color: 'red', margin: 0}}>{errorMessage}</p>}</div>
     </form>
-
 }
 
 

@@ -3,7 +3,6 @@ import axios from "axios";
 
 export const userAPI = {
     regUser(data) {
-        debugger;
         return axios.post('http://127.0.0.1:8000/api/v1/auth/users/', {
             'first_name': data.first_name,
             'username': data.username,
@@ -45,3 +44,36 @@ export const userAPI = {
             })
     }
 }
+export const productsAPI = {
+    getProducts(){
+        return axios.get('http://127.0.0.1:8000/api/v1/products/')
+    }
+}
+
+export const cartAPI = {
+    getCarts(userToken){
+        return axios.get('http://127.0.0.1:8000/api/v1/cart/', {
+            headers: {
+                'Authorization': `Token ${userToken}`
+            }
+        })
+    },
+    addNewCart(userToken, product_id){
+        return axios.post('http://127.0.0.1:8000/api/v1/cart/', {
+            product_id: product_id,
+        }, {
+            headers: {
+                'Authorization': `Token ${userToken}`
+            }
+        })
+    },
+    deleteCart(userToken, cart_id){
+        return axios.delete(`http://127.0.0.1:8000/api/v1/cart/${cart_id}/`, {
+            headers: {
+                'Authorization': `Token ${userToken}`
+            }
+        })
+    }
+}
+
+

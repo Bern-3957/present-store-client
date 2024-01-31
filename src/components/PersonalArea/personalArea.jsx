@@ -21,3 +21,5 @@ const  PersonalArea = (props) =>{
 }
 
 export default  PersonalArea;
+
+

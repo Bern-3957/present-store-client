@@ -16,7 +16,7 @@
 
 .art{
     color: #6B6B6B;
-    font-family: Open Sans;
+    font-family: Open Sans, sans-serif;
     font-size: 14px;
     font-weight: 400;
 }
@@ -24,16 +24,26 @@
 .title{
     margin-top: 10px;
     color: #464646;
-    font-family: Pomidorko;
+    font-family: Pomidorko, sans-serif;
     font-size: 28px;
     font-weight: 400;
     text-transform: uppercase;
+    cursor: pointer;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: white-space 0.3s, overflow 0.3s;
+}
+.title:hover{
+    overflow: visible;
+    white-space: normal;
 }
 
 .price{
     margin-top: 10px;
     color: #6B6B6B;
-    font-family: Pomidorko;
+    font-family: Pomidorko, sans-serif;
     font-size: 24px;
     font-weight: 400;
 }
@@ -66,7 +76,7 @@
 
 .quantity_count{
     color: #464646;
-    font-family: Open Sans;
+    font-family: Open Sans, sans-serif;
     font-size: 16px;
     font-weight: 400;
 }
@@ -84,7 +94,7 @@
     background: #AD6A75;
 
     color: #FFF;
-    font-family: Open Sans;
+    font-family: Open Sans, sans-serif;
     font-size: 16px;
     font-weight: 400;
     text-decoration: none;
@@ -92,5 +102,8 @@
     position: absolute;
     right: 30px;
     bottom: 0px;
+
+    cursor: pointer;
+    border: 0;
 }
 

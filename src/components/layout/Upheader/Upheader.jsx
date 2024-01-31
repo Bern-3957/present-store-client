@@ -13,20 +13,10 @@ import login from './../../../assets/icons/upheader/login.svg'
 import userIcon from './../../../assets/icons/upheader/userIcon.svg'
 
 import s from './Upheader.module.css'
-import axios from "axios";
 import {Link} from "react-router-dom";
 import {ROUTES} from "../../../utils/routes";
 
 const Upheader = (props) => {
-    const logout = () => {
-        axios.post('http://127.0.0.1:8000/auth/token/logout/', {}, {
-            headers: {
-                'Authorization': `Token ${props.userToken}`
-            }
-        }).finally(()=>{
-            props.setIsUserAuth(false)
-        })
-    }
     return (
         <div className={s.upheader}>
             <div className="container">
@@ -85,9 +75,11 @@ const Upheader = (props) => {
                         </div>
                     </div>
                     <div className={s.upheader_buttons}>
-                        <button onClick={() => {
-                            logout()
-                        }} className={s.upheader_buttons_basket}><img src={basket} alt="basket"/></button>
+                        {/*<button onClick={() => {*/}
+                        {/*    <Link to={ROUTES.CART}><img src={userIcon} alt=""/></Link>*/}
+                        {/*}} className={s.upheader_buttons_basket}><img src={basket} alt="basket"/></button>*/}
+                        <Link to={ROUTES.CART} className={s.upheader_buttons_basket}><img src={basket} alt="basket"/></Link>
+
                         {!props.isUserAuth ?
                             <span onClick={() => {
                                 props.openModal('auth-modal')

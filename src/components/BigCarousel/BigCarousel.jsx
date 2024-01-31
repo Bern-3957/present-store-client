@@ -6,20 +6,38 @@ import slider_first from "./../../assets/images/slider_first.png"
 
 const BigCarousel = (props) => {
 
-    const [offset, setOffset, ] = useState([])
+    // const [offset, setOffset, ] = useState([])
+
+    const [offset, setOffset] = useState(0);
+    const slideWidth = 1680;
+    const totalSlides = 3; // Замените на фактическое количество слайдов
+
     const handleLeftArrowClick = () => {
         setOffset((currentOffset) => {
-            const newOffset = currentOffset + 1680
-            return Math.min(newOffset, 0)
-        })
-    }
+            const newOffset = currentOffset + slideWidth;
+            return newOffset > 0 ? -((totalSlides - 1) * slideWidth) : newOffset;
+        });
+    };
+
     const handleRightArrowClick = () => {
         setOffset((currentOffset) => {
-            const newOffset = currentOffset - 1680
-            const maxOffset = -(1680 * 2)
-            return Math.max(newOffset, maxOffset)
-        })
-    }
+            const newOffset = currentOffset - slideWidth;
+            return newOffset < -((totalSlides - 1) * slideWidth) ? 0 : newOffset;
+        });
+    };
+    // const handleLeftArrowClick = () => {
+    //     setOffset((currentOffset) => {
+    //         const newOffset = currentOffset + 1680
+    //         return Math.min(newOffset, 0)
+    //     })
+    // }
+    // const handleRightArrowClick = () => {
+    //     setOffset((currentOffset) => {
+    //         const newOffset = currentOffset - 1680
+    //         const maxOffset = -(1680 * 2)
+    //         return Math.max(newOffset, maxOffset)
+    //     })
+    // }
     const SetChooselide = (slide) => {
         setOffset((currentOffset) => {
             switch (slide){
@@ -67,13 +85,13 @@ const BigCarousel = (props) => {
                     </div>
             </div>
             <div className={s.dotInner}>
-                <span className={`${s.dot} `} onClick={()=>{
+                <span className={`${s.dot}`} onClick={()=>{
                     SetChooselide(1)
                 }}></span>
-                <span className={`${s.dot} `} onClick={()=>{
+                <span className={`${s.dot}`} onClick={()=>{
                     SetChooselide(2)
                     }}></span>
-                <span className={`${s.dot} `} onClick={()=>{
+                <span className={`${s.dot}`} onClick={()=>{
                     SetChooselide(3)
                 }}></span>
             </div>
@@ -84,3 +102,6 @@ const BigCarousel = (props) => {
 }
 
 export default BigCarousel
+
+
+

@@ -17,7 +17,9 @@ const PersonalAreaContainer = () =>{
         dispatch(changeUserInfoAC(userInfo))
     }
 
-    return <PersonalArea changeUserInfo={changeUserInfo} setIsUserAuth={setIsUserAuth} isUserAuth={isUserAuth} userInfo={userInfo} userToken={userToken}/>
+    return <PersonalArea changeUserInfo={changeUserInfo}
+                         setIsUserAuth={setIsUserAuth}
+                         isUserAuth={isUserAuth} userInfo={userInfo} userToken={userToken}/>
 }
 
 

@@ -1,36 +1,37 @@
-import product from "../../components/PRCatalog/Products/Product/Product";
 
 export const getFilteredProducts = (all_products, activeCategory, activeFilters, activeEdible, activeSortSelect) => {
 
     function checkingCheckboxes(products, activeFilters, activeEdible) {
         let afterEdiblePr = []
+
         if (activeEdible === true) {
-            afterEdiblePr = products.filter(pr => pr.isEdible)
+            afterEdiblePr = products.filter(pr => pr.is_edible)
         } else if (activeEdible === false) {
-            afterEdiblePr = products.filter(pr => pr.isEdible === false)
+            afterEdiblePr = products.filter(pr => !pr.is_edible)
         } else {
             afterEdiblePr = [...products]
         }
 
-        let afterLastCheckboxesPr = [];
-        if (activeFilters.length !== 0) {
-            let foundMatch = false;
+        let afterPurposeCheckboxesPr = [];
 
-            for (let pr of afterEdiblePr) {
-                for (let filter_id of activeFilters) {
-                    if (pr.filterIDs.includes(filter_id)) {
-                        afterLastCheckboxesPr.push(pr)
-                        foundMatch = true;
-                    }
-                }
-            }
-            if (!foundMatch) {
-                return [];
-            }
+        if (activeFilters.purposes.length !== 0) {
+            afterPurposeCheckboxesPr = afterEdiblePr.filter(product =>
+                product.purpose && activeFilters.purposes.includes(product.purpose)
+            );
         } else {
-            afterLastCheckboxesPr = afterEdiblePr
+            afterPurposeCheckboxesPr = afterEdiblePr
         }
-        return afterLastCheckboxesPr;
+
+        let afterPackageCheckboxesPr = [];
+        if (activeFilters.packages.length !== 0){
+            afterPackageCheckboxesPr = afterPurposeCheckboxesPr.filter(product =>
+                product.package && activeFilters.packages.includes(product.package)
+            );
+        }else {
+            afterPackageCheckboxesPr = afterPurposeCheckboxesPr
+        }
+        return afterPackageCheckboxesPr
+
 
     }
 
@@ -71,73 +72,107 @@ export const getFilteredProducts = (all_products, activeCategory, activeFilters,
 };
 
 
-// export const getFilteredProducts = (all_products, activeCategory, activeFilters, activeEdible) => {
-//     let currentProducts = all_products.filter(pr=>pr.category_id===activeCategory ? pr : '')
-//
-//     if (activeEdible===true){
-//         currentProducts = currentProducts.filter(pr=>pr.isEdible)
-//     } else if (activeEdible===false){
-//         currentProducts = currentProducts.filter(pr=>pr.isEdible===false)
-//     } else {
-//         currentProducts = [...currentProducts]
-//     }
-//
-//     let totalProducts = [];
-//     if (activeFilters.length!==0){
-//         let foundMatch = false;
-//
-//         for (let pr of currentProducts){
-//             for (let filter_id of activeFilters){
-//                 if (pr.filterIDs.includes(filter_id)){
-//                     totalProducts.push(pr)
-//                     foundMatch = true;
-//                 }
-//             }
-//         }
-//         if (!foundMatch) {
-//             return [];
-//         }
-//     }
-//
-//     if (totalProducts.length === 0){
-//         return currentProducts;
-//     }
-//     else {
-//         return totalProducts;
-//     }
-//
-// };
 
 
-// export const getFilteredProducts = (all_products, activeCategory, activeFilters, activeEdible) => {
-//     let currentProducts = all_products.filter(pr => pr.category_id === activeCategory ? pr : '');
+// export const getFilteredProducts = (all_products, activeCategory, activeFilters, activeEdible, activeSortSelect) => {
+//     debugger;
 //
-//     if (activeEdible) {
-//         currentProducts = currentProducts.filter(pr => pr.isEdible);
-//     }else if (activeEdible===false){
-//         currentProducts = currentProducts.filter(pr=>pr.isEdible===false)
-//     } else {
-//         currentProducts = [...currentProducts]
-//     }
+//     function checkingCheckboxes(products, activeFilters, activeEdible) {
+//         debugger;
+//         let afterEdiblePr = []
+//         if (activeEdible === true) {
+//             afterEdiblePr = products.filter(pr => pr.is_edible)
+//         } else if (activeEdible === false) {
+//             afterEdiblePr = products.filter(pr => pr.is_edible === false)
+//         } else {
+//             afterEdiblePr = [...products]
+//         }
 //
-//     let totalProducts = [];
-//     if (activeFilters.length !== 0) {
-//         let foundMatch = false; // Флаг для отслеживания наличия хотя бы одного соответствия
+//         // let afterLastCheckboxesPr = [];
+//         // if (activeFilters.length !== 0) {
+//         //     let foundMatch = false;
+//         //
+//         //     for (let pr of afterEdiblePr) {
+//         //         for (let filter_id of activeFilters) {
+//         //             if (pr.filterIDs.includes(filter_id)) {
+//         //                 afterLastCheckboxesPr.push(pr)
+//         //                 foundMatch = true;
+//         //             }
+//         //             if (pr.purpose !== null && pr.purpose === filter_id){
+//         //                 afterLastCheckboxesPr.push(pr)
+//         //                 foundMatch = true;
+//         //             }
+//         //         }
+//         //     }
+//         //     if (!foundMatch) {
+//         //         return [];
+//         //     }
+//         // } else {
+//         //     afterLastCheckboxesPr = afterEdiblePr
+//         // }
+//         // return afterLastCheckboxesPr;
+//         debugger
+//         let afterPurposeCheckboxesPr = [];
 //
-//         for (let pr of currentProducts) {
-//             for (let filter_id of activeFilters) {
-//                 if (pr.filterIDs.includes(filter_id)) {
-//                     totalProducts.push(pr);
-//                     foundMatch = true;
-//                     // Можно использовать break, если вы хотите прекратить проверку фильтров после первого соответствия
+//         if (activeFilters.purposes.length !== 0) {
+//             afterPurposeCheckboxesPr = afterEdiblePr.filter((product) => {
+//                 if (product.purpose && activeFilters.purposes.includes(product.purpose)) {
+//                     return true
 //                 }
-//             }
+//             });
+//         } else {
+//             afterPurposeCheckboxesPr = afterEdiblePr
 //         }
 //
-//         if (!foundMatch) {
-//             return [];
+//         let afterPackageCheckboxesPr = [];
+//         if (activeFilters.packages.length !== 0){
+//             afterPackageCheckboxesPr = afterPurposeCheckboxesPr.filter((product) => {
+//                 if (product.package && activeFilters.packages.includes(product.package)) {
+//                     return true
+//                 }else {
+//                     return false
+//                 }
+//             });
+//         }else {
+//             afterPackageCheckboxesPr = afterPurposeCheckboxesPr
+//         }
+//         return afterPackageCheckboxesPr
+//
+//
+//     }
+//
+//     function sortBySelect(products, selectID) {
+//
+//         switch (selectID) {
+//             // По умолчанию
+//             case 1:
+//                 return products
+//             // По убыванию
+//             case 2:
+//                 return products.sort((a, b) => {
+//                     let priceA = a.price;
+//                     let priceB = b.price;
+//                     return priceB - priceA
+//                 })
+//             // По возрастанию
+//             case 3:
+//                 return products.sort((a, b) => {
+//                     let priceA = a.price;
+//                     let priceB = b.price;
+//                     return priceA - priceB
+//                 })
+//             default:
+//                 return products
 //         }
 //     }
 //
-//     return totalProducts.length === 0 ? currentProducts : totalProducts;
+//     if (activeCategory === null) {
+//         return sortBySelect(checkingCheckboxes(all_products, activeFilters, activeEdible), activeSortSelect)
+//     } else if (activeCategory) {
+//         let products = all_products.filter(pr => pr.category_id === activeCategory ? pr : '')
+//         if (activeCategory === 1) {
+//             products = all_products
+//         }
+//         return sortBySelect(checkingCheckboxes(products, activeFilters, activeEdible), activeSortSelect)
+//     }
 // };

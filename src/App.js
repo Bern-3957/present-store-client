@@ -11,6 +11,7 @@ import ModalBaseContainer from "./components/Modals/modalBaseContainer";
 import {useSelector} from "react-redux";
 import PersonalArea from "./components/PersonalArea/personalArea";
 import PersonalAreaContainer from "./components/PersonalArea/personalAreaContainer";
+import CartContainer from "./components/Cart/CartContainer";
 
 
 function App() {
@@ -28,7 +29,7 @@ function App() {
                     <Route path={ROUTES.PRCATALOG} element={<PRCatalog/>}/>
                     <Route path={`${ROUTES.PRCATALOG}/:category`} element={<PRCatalog/>}/>
                     <Route path={`${ROUTES.PERSONAL_AREA}`} element={<PersonalAreaContainer/>}/>
-
+                    <Route path={ROUTES.CART} element={<CartContainer/>}/>
                 </Route>
             </Routes>
             {isModalActive && <ModalBaseContainer/>}

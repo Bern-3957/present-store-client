@@ -144,13 +144,11 @@ import { userAPI } from "../../../api/api";
 
 const PersonalAreaForm = (props) => {
 
-
     const onUserInfoChange = (e) => {
         const { name, value, type, checked } = e.target;
         const fieldValue = type === "checkbox" ? checked : value;
         props.changeUserInfo({ [name]: fieldValue });
     };
-
     const handleLogout = async () => {
         try {
             await userAPI.logoutUser(props.userToken);
@@ -239,8 +237,11 @@ const PersonalAreaForm = (props) => {
             </div>
 
             <div className={s.buttons}>
-                <button name="logout" style={{ cursor: 'pointer' }} className={s.personalAreaButton} onClick={handleLogout} type="button">Выйти из аккаунта</button>
-                <button name="change-user-info" style={{ cursor: 'pointer' }} className={s.personalAreaButton} onClick={handleSaveChanges} type="button">Сохранить изменения</button>
+                <button name="logout" style={{ cursor: 'pointer' }}
+                        className={s.personalAreaButton} onClick={handleLogout} type="button">Выйти из аккаунта</button>
+                <button name="change-user-info"
+                        style={{ cursor: 'pointer' }} className={s.personalAreaButton} onClick={handleSaveChanges}
+                        type="button">Сохранить изменения</button>
             </div>
         </form>
     );
