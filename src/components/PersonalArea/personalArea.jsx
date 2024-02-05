@@ -11,8 +11,8 @@ const  PersonalArea = (props) =>{
                 <button className={s.menu_button}>Личная скидка</button>
                 <button className={s.menu_button}>Мои покупки</button>
             </div>
-            <PersonalAreaForm setIsUserAuth={props.setIsUserAuth}
-                              isUserAuth={props.isUserAuth}
+            <PersonalAreaForm setIsAuthenticated={props.setIsAuthenticated}
+                              isAuthenticated={props.isAuthenticated}
                               userInfo={props.userInfo}
                               userToken={props.userToken}
                               changeUserInfo={props.changeUserInfo}/>

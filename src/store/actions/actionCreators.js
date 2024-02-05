@@ -10,10 +10,9 @@ import {
     OPEN_MODAL,
     SET_USER_INFO,
     SET_USER_TOKEN,
-    SET_IS_USER_AUTH,
     CHANGE_USER_INFO,
     SET_PRODUCTS,
-    GET_PRODUCTS, SET_CARTS, SET_CARTS_PRODUCTS,
+    GET_PRODUCTS, SET_CARTS, SET_CARTS_PRODUCTS, SET_IS_AUTHENTICATED, DELETE_PRODUCT_FROM_CART,
 } from "./actionTypes";
 
 export const setPresentConsistsCheckboxAC = (checkbox_id) => {
@@ -45,11 +44,11 @@ export const setUserTokenAC = (userToken) => {
 export const setUserInfoAC = (userInfo) => {
     return {type: SET_USER_INFO, userInfo}
 }
-export const setIsUserAuthAC = (isUserAuth) => {
-    return {type: SET_IS_USER_AUTH, isUserAuth}
+export const setIsAuthenticatedAC = (isUserAuth) => {
+    return {type: SET_IS_AUTHENTICATED, isUserAuth}
 }
 export const changeUserInfoAC = (userInfo) => {
-    return {type: CHANGE_USER_INFO, userInfo}
+    return {type: SET_IS_AUTHENTICATED, userInfo}
 }
 
 
@@ -73,4 +72,7 @@ export const setCartsAC = (carts) => {
 
 export const setCartsProductsAC = (cartsProducts) => {
     return {type: SET_CARTS_PRODUCTS, cartsProducts}
+}
+export const deleteProductFromCartAC = (carts_product_id) => {
+    return {type: DELETE_PRODUCT_FROM_CART, carts_product_id}
 }

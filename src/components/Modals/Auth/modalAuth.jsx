@@ -2,10 +2,14 @@ import React from "react";
 
 import s from "./../modalBase.module.css"
 import {useForm} from "react-hook-form";
-import {userAPI} from "../../../api/api";
+import {useDispatch, useSelector} from "react-redux";
+import {setIsAuthenticatedAC} from "../../../store/actions/actionCreators";
 
 
 const ModalAuth = (props) => {
+    // const {isAuthenticated, setIsAuthenticated} = useAuth()
+    const dispatch = useDispatch()
+    // const isAuthenticated = useSelector(state => state.user.isAuthenticated)
     const {
         register,
         formState: {errors, isValid},
@@ -14,22 +18,17 @@ const ModalAuth = (props) => {
     } = useForm({mode: "onBlur"});
 
     const onSubmit = (data) => {
-        userAPI.authUser(data).then(response => {
-            props.setUserToken(response.data.auth_token)
-            userAPI.aboutUser(response.data.auth_token).then(userInfo => {
-                props.setIsUserAuth(true)
-                props.setUserInfo(userInfo.data)
-            }).catch(error => {
-                    console.error('Error fetching user info:', error);
-                });
-        }).catch(error => {
-            console.error('Error login:', error);
-        })
-        .finally(() => {
+
+        props.authUser(data).then((response) => {
+            debugger
+            console.log('ejnrvkjernvkehjrnkhre---------------')
             reset();
             props.closeModal();
             props.openModal('auth-success-modal')
-        });
+            dispatch(setIsAuthenticatedAC(true))
+
+        }).catch(()=>console.log('error'));
+
     }
 
     return <form onSubmit={handleSubmit(onSubmit)} className={s.auth_form}>

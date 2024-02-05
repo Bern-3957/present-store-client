@@ -47,15 +47,11 @@ const ModalBase = (props) => {
                 </div>
                 {props.currentModalID === 'auth-modal' ? <ModalAuth openModal={props.openModal}
                                                                     closeModal={props.closeModal}
-                                                                    setUserInfo={props.setUserInfo}
-                                                                    setUserToken={props.setUserToken}
-                                                                    setIsUserAuth={props.setIsUserAuth}
+                                                                    authUser={props.authUser}
                     />
                     : props.currentModalID === 'reg-modal' ? <ModalReg openModal={props.openModal}
                                                                        closeModal={props.closeModal}
-                                                                       setUserInfo={props.setUserInfo}
-                                                                       setUserToken={props.setUserToken}
-                                                                       setIsUserAuth={props.setIsUserAuth}/>
+                                                                       authUser={props.authUser}/>
                         : props.currentModalID === 'pass-restore-modal' ? <ModalPassRestore/>
                             : props.currentModalID === 'reg-success-modal' ? <ModalSuccessReg closeModal={props.closeModal}/>
                                 : props.currentModalID === 'auth-success-modal' ? <ModalSuccessAuth closeModal={props.closeModal}/> : <p></p>

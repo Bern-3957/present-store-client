@@ -1,5 +1,11 @@
-import {cartAPI, productsAPI} from "../../api/api";
-import {setCartsAC, setCartsProductsAC, setProductsAC} from "../actions/actionCreators";
+import {cartAPI, productsAPI, userAPI} from "../../api/api";
+import {
+    setCartsAC,
+    setCartsProductsAC, setIsAuthenticatedAC,
+    setProductsAC, setUserInfoAC,
+    setUserTokenAC
+} from "../actions/actionCreators";
+import {setToken} from "../../customProvider/tokenProvider";
 
 export const getProductsTC = () => {
     return (dispatch) => {
@@ -8,6 +14,43 @@ export const getProductsTC = () => {
             dispatch(setProductsAC(response.data.products))
         })
     };
+}
+
+// export const authUserTC = (dataForAuth) => (dispatch) => {
+//     userAPI.authUser(dataForAuth).then(response => {
+//         dispatch(setUserTokenAC(response.data.auth_token))
+//         return userAPI.aboutUser(response.data.auth_token).then(userInfo => {
+//             dispatch(setIsUserAuthAC(true))
+//             dispatch(setUserInfoAC(userInfo.data))
+//         }).catch(error => {
+//             console.error('Error fetching user info:', error);
+//         });
+//     }).catch(error => {
+//         console.error('Error login:', error);
+//     })
+//
+// }
+export const authUserTC = (dataForAuth) => (dispatch) => {
+
+    return userAPI.authUser(dataForAuth)
+        .then(response => {
+            dispatch(setUserTokenAC(response.data.auth_token));
+            setToken(response.data.auth_token)
+            return userAPI.aboutUser(response.data.auth_token)
+        })
+        .then(userInfo => {
+            dispatch(setIsAuthenticatedAC(true));
+            dispatch(setUserInfoAC(userInfo.data));
+
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            throw error;
+        })
+        .finally(()=> {
+            console.log('finally')
+        })
+
 }
 
 export const getCartsTC = (userToken) => (dispatch) => {

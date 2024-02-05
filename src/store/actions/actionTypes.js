@@ -7,7 +7,7 @@ export const OPEN_MODAL = 'OPEN_MODAL'
 export const CLOSE_MODAL = 'CLOSE_MODAL'
 export const SET_USER_INFO = 'SET_USER_INFO'
 export const SET_USER_TOKEN = 'SET_USER_TOKEN'
-export const SET_IS_USER_AUTH = 'SET_IS_USER_AUTH'
+export const SET_IS_AUTHENTICATED = 'SET_IS_AUTHENTICATED'
 export const CHANGE_USER_INFO = 'CHANGE_USER_INFO'
 
 
@@ -22,6 +22,7 @@ export const SET_PRODUCTS = 'SET_PRODUCTS'
 // Cart
 export const SET_CARTS = 'SET_CARTS'
 export const SET_CARTS_PRODUCTS = 'SET_CARTS_PRODUCTS'
+export const DELETE_PRODUCT_FROM_CART = 'DELETE_PRODUCT_FROM_CART'
 
 
 

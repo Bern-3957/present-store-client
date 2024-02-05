@@ -1,9 +1,10 @@
-import {CHANGE_USER_INFO, SET_IS_USER_AUTH, SET_USER_INFO, SET_USER_TOKEN} from "../actions/actionTypes";
+import {CHANGE_USER_INFO, SET_USER_INFO,  SET_IS_AUTHENTICATED} from "../actions/actionTypes";
+// import {CHANGE_USER_INFO, SET_IS_AUTHENTICATED, SET_USER_INFO, SET_USER_TOKEN} from "../actions/actionTypes";
 
 
 let InitialState = {
-    userToken: null,
-    isUserAuth: false,
+    // userToken: null,
+    isAuthenticated: false,
     userInfo:{
         id: null,
         username: null,
@@ -19,16 +20,17 @@ let InitialState = {
 
 export const userReducer = (state = InitialState, action) => {
     switch (action.type) {
-        case SET_USER_TOKEN:
+        // case SET_USER_TOKEN:
+        //     return {
+        //         ...state,
+        //         userToken: action.userToken,
+        //     }
+        //
+        case SET_IS_AUTHENTICATED:
+            // debugger
             return {
                 ...state,
-                userToken: action.userToken,
-            }
-
-        case SET_IS_USER_AUTH:
-            return {
-                ...state,
-                isUserAuth: action.isUserAuth
+                isAuthenticated: action.isUserAuth
             }
         case SET_USER_INFO:
 

@@ -62,6 +62,12 @@
     font-size: 16px;
     font-weight: 400;
     border: 0;
+    transition: background-color .1s;
+    cursor: pointer;
+}
+
+.log_in_btn:hover{
+    background-color: #efecec;
 }
 
 .log_in_btn.isActive{
@@ -141,6 +147,7 @@
     height: 24px;
     flex-shrink: 0;
     border: 2px solid #F0E6DD;
+    cursor: pointer;
 }
 
 .personal_data_chLabal {

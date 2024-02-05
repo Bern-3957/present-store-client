@@ -8,14 +8,31 @@ import {ROUTES} from "./utils/routes";
 import Catalog from "./components/Catalog/Catalog";
 import PRCatalog from "./components/PRCatalog/PRCatalog";
 import ModalBaseContainer from "./components/Modals/modalBaseContainer";
-import {useSelector} from "react-redux";
-import PersonalArea from "./components/PersonalArea/personalArea";
+
 import PersonalAreaContainer from "./components/PersonalArea/personalAreaContainer";
 import CartContainer from "./components/Cart/CartContainer";
-
+import {useSelector} from "react-redux";
+// import WithAuth from "./hoc/withAuth";
 
 function App() {
     const isModalActive = useSelector(state => state.modal.isModalActive)
+    // const dispatch = useDispatch()
+    //
+    // useEffect(() => {
+    //     const token = getToken()
+    //     const isAuthenticated = !!token
+    //
+    //     if (isAuthenticated){
+    //         debugger
+    //         userAPI.aboutUser(token.value)
+    //             .then((userInfo) => {
+    //                     console.log('usetinfoooooooooo', userInfo)
+    //                     dispatch(setUserInfoAC(userInfo.data))
+    //                 }
+    //             )
+    //     }
+    // }, []);
+
     return (<div className="app">
             <Routes>
                 <Route path='/' element={<Layout/>}>

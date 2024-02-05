@@ -141,9 +141,10 @@
 import React from "react";
 import s from "./personalAreaForm.module.css";
 import { userAPI } from "../../../api/api";
+import {removeToken} from "../../../customProvider/tokenProvider";
+import {useAuth} from "../../../hoc/withAuth";
 
 const PersonalAreaForm = (props) => {
-
     const onUserInfoChange = (e) => {
         const { name, value, type, checked } = e.target;
         const fieldValue = type === "checkbox" ? checked : value;
@@ -151,8 +152,9 @@ const PersonalAreaForm = (props) => {
     };
     const handleLogout = async () => {
         try {
-            await userAPI.logoutUser(props.userToken);
-            props.setIsUserAuth(false);
+            await userAPI.logoutUser(props.userToken)
+            props.setIsAuthenticated(false);
+            removeToken()
         } catch (error) {
             console.error("Logout error:", error);
         }

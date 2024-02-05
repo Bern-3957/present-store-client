@@ -1,41 +1,28 @@
 import React, {useState} from "react";
 import s from "./../modalBase.module.css"
 import {useForm} from "react-hook-form";
-import axios from "axios";
-import ModalSuccessReg from "./modalSuccessReg";
 import {userAPI} from "../../../api/api";
 
 const ModalReg = (props) => {
     const [errorMessage, setErrorMessage] = useState(null);
 
-    const showError = (message) =>{
-        setErrorMessage(message)
-    }
     const {
         register,
         formState: {errors, isValid},
         handleSubmit,
+        reset,
     } = useForm({mode: "onBlur"})
 
     const onSubmit = (data) => {
         userAPI.regUser(data)
             .then(response => {
-                return userAPI.authUser(data)
+                // return userAPI.authUser(data)
+                props.authUser(data).then(() => {
+                    reset();
+                    props.closeModal();
+                    props.openModal('auth-success-modal')
+                }).catch(()=>console.log('error'));
             })
-            .then((tokenResponse) => {
-                props.setUserToken(tokenResponse.data.auth_token)
-                return userAPI.aboutUser(tokenResponse.data.auth_token)
-            })
-            .then(userInfo => {
-                props.setIsUserAuth(true)
-                props.setUserInfo(userInfo.data)
-                props.closeModal()
-                props.openModal('reg-success-modal')
-            })
-            .catch(error => {
-                console.error('Ошибка во время регистрации', error)
-                showError('Введите корректные данные!')
-            });
 
     }
 

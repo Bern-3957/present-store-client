@@ -65,4 +65,11 @@
     font-size: 16px;
     font-weight: 400;
     background-color: white;
+    cursor: pointer;
+
+    transition: background-color .1s;
+}
+
+.personalAreaButton:hover{
+    background-color: #ece7e7;
 }

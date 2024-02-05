@@ -1,9 +1,14 @@
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import Product from "./Product";
-import {decrementProductCountAC, incrementProductCountAC} from "../../../../store/actions/actionCreators";
+import {
+    decrementProductCountAC,
+    incrementProductCountAC,
+    openModalAC, setIsAuthenticatedAC,
+} from "../../../../store/actions/actionCreators";
 import {getFilteredProducts} from "../../../../store/selectors/filterSelectors";
 import {addNewCartTC, getProductsTC} from "../../../../store/thunks/thunkCreators";
+import {getToken} from "../../../../customProvider/tokenProvider";
 
 const ProductContainer = () => {
     const dispatch = useDispatch();
@@ -12,16 +17,24 @@ const ProductContainer = () => {
     const activeFilters = useSelector((state) => state.filters.sideBar.activeFilters)
     const activeEdible = useSelector((state) => state.filters.sideBar.activeEdible)
     const activeSortSelect = useSelector((state) => state.filters.activeSortSelect)
-
-    const userToken = useSelector(state => state.user.userToken)
+    const isAuthenticated = useSelector(state => state.user.isAuthenticated)
+    const userToken = getToken()
 
     const addNewCart = (product_id) => {
-        dispatch(addNewCartTC(userToken, product_id))
+        dispatch(addNewCartTC(userToken.value, product_id))
     }
 
     useEffect(() => {
         dispatch(getProductsTC())
     },[]);
+
+    const openModal= (currentModalID)=>{
+        dispatch(openModalAC(currentModalID))
+    }
+
+    const setIsAuthenticated = (isUserAuth) =>{
+        dispatch(setIsAuthenticatedAC(isUserAuth))
+    }
 
     const products = getFilteredProducts(all_products, activeCategory, activeFilters, activeEdible, activeSortSelect)
     const increment = (select_item_id) => {
@@ -30,7 +43,7 @@ const ProductContainer = () => {
     const decrement = (select_item_id) => {
         dispatch(decrementProductCountAC(select_item_id));
     };
-    return <Product products={products} increment={increment} decrement={decrement} addNewCart={addNewCart}/>;
+    return <Product isAuthenticated={isAuthenticated} openModal={openModal} setIsAuthenticated={setIsAuthenticated} products={products} increment={increment} decrement={decrement} addNewCart={addNewCart}/>;
 };
 
 export default ProductContainer;

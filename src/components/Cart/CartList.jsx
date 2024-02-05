@@ -25,7 +25,7 @@ const CartList = (props) => {
                                     </div>
                                     <div className={s.price}>{cartsProductsItem.price} ₽</div>
                                 </div>
-                                <button onClick={() => props.deleteCart(cartsItem.id)}
+                                <button onClick={() => props.deleteCart(cartsItem.id, cartsProductsItem.id)}
                                         className={s.delete_from_cart_btn}>Убрать из корзины
                                 </button>
                             </div>

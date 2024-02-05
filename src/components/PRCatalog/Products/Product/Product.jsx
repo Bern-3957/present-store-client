@@ -6,6 +6,7 @@ import present from "./present.png"
 import products from "../Products";
 
 const Product = (props) => {
+    debugger
     // const products = props.filteredProducts.length !== 0 ? props.filteredProducts : props.products
     return (props.products.map((item) => {
             return <div className={s.product_item}>
@@ -19,7 +20,14 @@ const Product = (props) => {
                         <div className={s.quantity_count}>{item.count}</div>
                         <span onClick={() => props.decrement(item.id)} className={s.quantity_subtract_btn}><img src={minus} alt="0"/></span>
                     </div>
-                    <button onClick={()=>props.addNewCart(item.id)} className={s.add_to_basket_btn}>В корзину</button>
+                    <button onClick={()=> {
+                        {
+                            props.isAuthenticated ?
+                                props.addNewCart(item.id) :
+                                    props.openModal('auth-modal')
+                        }
+                    }
+                    } className={s.add_to_basket_btn}>В корзину</button>
                 </div>
             </div>
         })

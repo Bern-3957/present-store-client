@@ -1,16 +1,18 @@
 import React from "react";
 import {useDispatch, useSelector} from "react-redux";
 import PersonalArea from "./personalArea";
-import {changeUserInfoAC, setIsUserAuthAC} from "../../store/actions/actionCreators";
+import {changeUserInfoAC, setIsAuthenticatedAC,} from "../../store/actions/actionCreators";
+import {getToken} from "../../customProvider/tokenProvider";
 
 const PersonalAreaContainer = () =>{
     const dispatch = useDispatch()
-    const isUserAuth = useSelector(state => state.user.isUserAuth)
+    const isAuthenticated = useSelector(state => state.user.isAuthenticated)
     const userInfo = useSelector(state => state.user.userInfo)
-    const userToken = useSelector(state => state.user.userToken)
+    const userToken = getToken().value
 
-    const setIsUserAuth = (isUserAuth) =>{
-        dispatch(setIsUserAuthAC(isUserAuth))
+
+    const setIsAuthenticated = (isUserAuth) =>{
+        dispatch(setIsAuthenticatedAC(isUserAuth))
     }
 
     const changeUserInfo = (userInfo) => {
@@ -18,8 +20,8 @@ const PersonalAreaContainer = () =>{
     }
 
     return <PersonalArea changeUserInfo={changeUserInfo}
-                         setIsUserAuth={setIsUserAuth}
-                         isUserAuth={isUserAuth} userInfo={userInfo} userToken={userToken}/>
+                         setIsAuthenticated={setIsAuthenticated}
+                         isAuthenticated={isAuthenticated} userInfo={userInfo} userToken={userToken}/>
 }
 
 
