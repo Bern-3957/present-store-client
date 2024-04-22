@@ -119,6 +119,24 @@
     text-transform: uppercase;
 }
 
+.sub_title{
+    color: #6e6e6e;
+    text-align: center;
+    font-family: Pomidorko;
+    font-size: 18px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+
+.success_order_modal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
 .phone_number {
     display: flex;
     width: 347px;

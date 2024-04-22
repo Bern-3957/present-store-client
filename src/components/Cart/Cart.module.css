@@ -47,6 +47,12 @@
     text-transform: uppercase;
     text-align: center;
     margin: 5px 0 30px;
+    transition: .2s color;
+    user-select: none   ;
+}
+
+.cartEmpty:hover{
+    color: #4dde44;
 }
 
 .cart_item{
@@ -110,6 +116,7 @@
     font-size: 30px;
     color: #FFFFFF;
     cursor: pointer;
+    user-select: none;
 }
 
 
@@ -119,6 +126,7 @@
     font-family: Open Sans, sans-serif;
     font-size: 16px;
     font-weight: 400;
+    user-select: none;
 }
 
 .price{
@@ -127,6 +135,7 @@
     font-family: Pomidorko, sans-serif;
     font-size: 24px;
     font-weight: 400;
+    user-select: none;
 }
 
 .delete_from_cart_btn{
@@ -144,6 +153,12 @@
     width: 230px;
     height: 52px;
     cursor: pointer;
+    transition: background-color .2s;
+}
+
+.delete_from_cart_btn:hover{
+    background-color: #ef87ca;
+    color: #000000;
 }
 
 .cart_form{

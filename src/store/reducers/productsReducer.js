@@ -1,8 +1,14 @@
-import {DECREMENT_PRODUCT_COUNT, INCREMENT_PRODUCT_COUNT, SET_PRODUCTS} from "../actions/actionTypes";
+import {
+    DECREMENT_PRODUCT_COUNT,
+    INCREMENT_PRODUCT_COUNT,
+    SET_CURRENT_PRODUCT,
+    SET_PRODUCTS
+} from "../actions/actionTypes";
 
 
 let InitialState = {
     products: [],
+    currentProduct: {}
 }
 
 export const productsReducer = (state = InitialState, action) => {
@@ -28,6 +34,12 @@ export const productsReducer = (state = InitialState, action) => {
                 ...state,
                 products: action.products
             }
+        case SET_CURRENT_PRODUCT:
+            return {
+                ...state,
+                currentProduct: action.product
+            }
+
         default:
             return state
     }

@@ -1,15 +1,17 @@
 .personalArea{
-    height: 1100px;
-    background: url("./../../assets/images/personalArea/back.png") center/cover no-repeat;
+    min-height: 1100px;
+    background: url("./../../assets/images/personalArea/back.png") ;
 
     display: flex;
     align-items: center;
     justify-content: center;
+
+    padding: 101px 0px;
 }
 
 .personalArea_inner {
     width: 1089px;
-    height: 899px;
+    min-height: 899px;
     background: white;
 
     border: .5px solid black;

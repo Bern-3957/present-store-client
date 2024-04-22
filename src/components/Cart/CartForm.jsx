@@ -25,8 +25,9 @@ const CartForm = (props) => {
     } = useForm({mode: "onBlur"})
 
     const onSubmit = (data) => {
-        console.log(data)
-        alert(JSON.stringify(data))
+        console.log('Нажатие на ')
+        // alert(JSON.stringify(data))
+        props.sendOrderDataToServer(data)
         reset()
     }
     const orderReceiveMethod = watch("order_receive_method", "1");
@@ -110,10 +111,14 @@ const CartForm = (props) => {
             </div>
             <div className={s.cart_form_item}>
                 <div className={s.final_order_info}>
-                    <div className={s.final_order_info_cost}>Стоимость товаров: 4000 ₽</div>
-                    <div className={s.final_order_info_delivery}>Доставка: 250 ₽</div>
-                    <div className={s.final_order_info_discount}>Ваша скидка: -370 ₽</div>
-                    <div className={s.final_order_info_final_price}>Итого к оплате: 3 880 ₽</div>
+                    {/*<div className={s.final_order_info_cost}>Стоимость товаров:  ₽</div>*/}
+                    {/*<div className={s.final_order_info_delivery}>Доставка:  ₽</div>*/}
+                    {/*<div className={s.final_order_info_discount}>Ваша скидка: - ₽</div>*/}
+                    {/*<div className={s.final_order_info_final_price}>Итого к оплате:  ₽</div>*/}
+                    <div className={s.final_order_info_cost}>Стоимость товаров: {props.cartMoney.productsCost} ₽</div>
+                    <div className={s.final_order_info_delivery}>Доставка: {props.cartMoney.deliveryCost} ₽</div>
+                    <div className={s.final_order_info_discount}>Ваша скидка: -{props.cartMoney.discount} ₽</div>
+                    <div className={s.final_order_info_final_price}>Итого к оплате: {props.cartMoney.finalCost} ₽</div>
                 </div>
                 <button disabled={!isValid} className={s.CartForm_btn}>Оформить заказ</button>
             </div>

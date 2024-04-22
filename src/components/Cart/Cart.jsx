@@ -9,8 +9,14 @@ const Cart = (props) => {
         <div className="container">
             <h2 className={s.title}>Корзина</h2>
             <div className={s.cart_inner}>
-                <CartList carts={props.carts} cartsProducts={props.cartsProducts} deleteCart={props.deleteCart}></CartList>
-                <CartForm></CartForm>
+                <CartList userToken={props.userToken}
+                          carts={props.carts}
+                          decrementCartQuantity={props.decrementCartQuantity}
+                          incrementCartQuantity={props.incrementCartQuantity}
+                          cartsProducts={props.cartsProducts}
+                          deleteCartItem={props.deleteCartItem}></CartList>
+                <CartForm sendOrderDataToServer={props.sendOrderDataToServer}
+                          cartMoney={props.cartMoney}/>
             </div>
         </div>
     </div>

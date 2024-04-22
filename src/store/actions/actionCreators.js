@@ -10,9 +10,15 @@ import {
     OPEN_MODAL,
     SET_USER_INFO,
     SET_USER_TOKEN,
-    CHANGE_USER_INFO,
     SET_PRODUCTS,
-    GET_PRODUCTS, SET_CARTS, SET_CARTS_PRODUCTS, SET_IS_AUTHENTICATED, DELETE_PRODUCT_FROM_CART,
+    SET_CARTS_PRODUCTS,
+    SET_IS_AUTHENTICATED,
+    SET_CART_ITEMS,
+    DELETE_CART_ITEM,
+    CHANGE_CART_QUANTITY,
+    CHANGE_CART_ITEM_QUANTITY,
+    INCREMENT_CART_ITEM_QUANTITY,
+    DECREMENT_CART_ITEM_QUANTITY, SET_CURRENT_PRODUCT, SET_CURRENT_PRODUCT_IMAGES, SET_COST, SET_DISCOUNT,
 } from "./actionTypes";
 
 export const setPresentConsistsCheckboxAC = (checkbox_id) => {
@@ -64,15 +70,30 @@ export const setProductsAC = (products) =>{
     return {type: SET_PRODUCTS, products}
 }
 
+export const setCurrentProductAC = (product) =>{
+    return {type: SET_CURRENT_PRODUCT, product}
+}
+
+
+
 // Cart
 
-export const setCartsAC = (carts) => {
-    return {type: SET_CARTS, carts}
+export const setCartItemsAC = (cartItems) => {
+    return {type: SET_CART_ITEMS, cartItems}
 }
 
 export const setCartsProductsAC = (cartsProducts) => {
     return {type: SET_CARTS_PRODUCTS, cartsProducts}
 }
-export const deleteProductFromCartAC = (carts_product_id) => {
-    return {type: DELETE_PRODUCT_FROM_CART, carts_product_id}
+export const deleteCartItemAC = (cartItemId) => {
+    return {type: DELETE_CART_ITEM, cartItemId}
+}
+export const changeCartItemQuantityAC = (cartItemId, quantity) => {
+    return {type: CHANGE_CART_ITEM_QUANTITY, cartItemId, quantity}
+}
+export const setCostAC = () => {
+    return {type: SET_COST}
+}
+export const setDiscountAC = (discount) => {
+    return {type: SET_DISCOUNT, discount}
 }

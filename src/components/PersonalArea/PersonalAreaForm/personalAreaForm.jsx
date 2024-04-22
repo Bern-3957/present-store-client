@@ -1,5 +1,5 @@
 // import React from "react";
-// import s from "./personalAreaForm.module.css"
+// import s from "./personalAreaForm.module.css";
 // import {useForm, useWatch} from "react-hook-form";
 // import personalArea from "../personalArea";
 // import axios from "axios";
@@ -80,7 +80,7 @@
 
 
 // import React from "react";
-// import s from "./personalAreaForm.module.css"
+// import s from "./personalAreaForm.module.css";
 // import axios from "axios";
 // import {userAPI} from "../../../api/api";
 //
@@ -143,17 +143,23 @@ import s from "./personalAreaForm.module.css";
 import { userAPI } from "../../../api/api";
 import {removeToken} from "../../../customProvider/tokenProvider";
 import {useAuth} from "../../../hoc/withAuth";
+import {useDispatch} from "react-redux";
+import {setCartItemsAC} from "../../../store/actions/actionCreators";
 
 const PersonalAreaForm = (props) => {
+    const dispatch = useDispatch();
+
     const onUserInfoChange = (e) => {
         const { name, value, type, checked } = e.target;
         const fieldValue = type === "checkbox" ? checked : value;
         props.changeUserInfo({ [name]: fieldValue });
     };
     const handleLogout = async () => {
+
         try {
-            await userAPI.logoutUser(props.userToken)
+            await userAPI.logoutUser(props.userToken ? props.userToken.value : null)
             props.setIsAuthenticated(false);
+            dispatch(setCartItemsAC([]))
             removeToken()
         } catch (error) {
             console.error("Logout error:", error);

@@ -1,0 +1,191 @@
+.AboutProduct{
+    padding: 67px 0;
+}
+
+.inner{
+    display: flex;
+    gap: 120px;
+}
+
+.images{
+    display: flex;
+    gap: 25px;
+}
+
+.miniImages{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.miniImageCont{
+    width: 112px;
+    height: 155px;
+
+}
+.miniImage{
+
+    /*height: auto;*/
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+.currentImageCont{
+    width: 541px;
+    height: 749px;
+
+}
+.currentImage{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.info{
+
+}
+
+.title{
+    color: #464646;
+    font-family: Pomidorko;
+    font-size: 48px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+.art{
+    font-family: "Open Sans", sans-serif;
+    color: #D9D9D9;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 44px;
+}
+
+.description{
+
+}
+
+.description_title{
+    color: #464646;
+    font-family: Pomidorko;
+    font-size: 20px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+
+.description_text{
+    font-family: "Open Sans", sans-serif;
+    color: #afacac;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 44px;
+}
+
+.price{
+    color: #464646;
+    font-family: Pomidorko;
+    font-size: 40px;
+    font-weight: 400;
+    margin-right: 30px;
+}
+
+.add_to_basket_btn{
+    width: 139px;
+    height: 52px;
+    display: flex;
+    padding: 15px 30px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    border-radius: 300px;
+    background: #AD6A75;
+
+    color: #FFF;
+    font-family: Open Sans, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    text-decoration: none;
+
+    cursor: pointer;
+    border: 0;
+}
+
+
+.add_to_basket_btn_product_in_cart{
+    width: 139px;
+    height: 52px;
+    display: flex;
+    padding: 15px 30px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    border-radius: 300px;
+    background: #3bdbee;
+
+    color: #FFF;
+    font-family: Open Sans, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    text-decoration: none;
+
+    cursor: pointer;
+    border: 0;
+    text-align: center;
+}
+
+.sdek_info{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.sdek_icon{
+    width: 52px;
+    height: 52px;
+    background-color: #F0E6DD;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    border-radius: 50%;
+}
+.sdek_text{
+    color: #AC6F7A;
+    font-family: "Open Sans", sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+
+.share{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.share_text{
+    font-family: "Pomidorko", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: #464646;
+}
+
+.shere_icon{
+    margin: 0 10px;
+    width: 52px;
+    height: 52px;
+    background-color: #F0E6DD;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+

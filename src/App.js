@@ -12,6 +12,7 @@ import ModalBaseContainer from "./components/Modals/modalBaseContainer";
 import PersonalAreaContainer from "./components/PersonalArea/personalAreaContainer";
 import CartContainer from "./components/Cart/CartContainer";
 import {useSelector} from "react-redux";
+import AboutProductContainer from "./components/AboutProduct/AboutProductContainer";
 // import WithAuth from "./hoc/withAuth";
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
                     <Route path={`${ROUTES.PRCATALOG}/:category`} element={<PRCatalog/>}/>
                     <Route path={`${ROUTES.PERSONAL_AREA}`} element={<PersonalAreaContainer/>}/>
                     <Route path={ROUTES.CART} element={<CartContainer/>}/>
+                    <Route path={ROUTES.ABOUT_PRODUCT_FOR_APP} element={<AboutProductContainer/>}/>
                 </Route>
             </Routes>
             {isModalActive && <ModalBaseContainer/>}

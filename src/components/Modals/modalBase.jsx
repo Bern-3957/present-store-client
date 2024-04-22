@@ -8,6 +8,7 @@ import regImg from "../../assets/images/AuthReg/Rectangle 33.png";
 import ix from "../../assets/icons/AuthReg/ix.svg";
 import ModalSuccessReg from "./Reg/modalSuccessReg";
 import ModalSuccessAuth from "./Auth/modalSuccessAuth";
+import ModalSuccessOrder from "./SuccessOrder/modalSuccessOrder";
 
 
 const ModalBase = (props) => {
@@ -30,35 +31,43 @@ const ModalBase = (props) => {
         };
     }, [props.isModalActive]);
 
-    return ReactDOM.createPortal(<div className={s.modalBase} onClick={handleOutsideClick}>
-        <div className={s.modalBaseInner}>
-            <img src={regImg} alt="authImg" className={s.auth_img}/>
-            <div className={s.auth_data}>
-                <img onClick={props.closeModal} src={ix} alt="ix" className={s.ix}/>
-                <div className={s.buttons}>
-                    <button onClick={() => {
-                        props.openModal('auth-modal')
-                    }} className={`${s.log_in_btn} ${props.isModalActive && props.currentModalID === 'auth-modal' && s.isActive}`}>Войти
-                    </button>
-                    <button onClick={() => {
-                        props.openModal('reg-modal')
-                    }} className={`${s.log_in_btn} ${props.isModalActive && props.currentModalID === 'reg-modal' && s.isActive}`}>Зарегистрироваться
-                    </button>
-                </div>
-                {props.currentModalID === 'auth-modal' ? <ModalAuth openModal={props.openModal}
-                                                                    closeModal={props.closeModal}
-                                                                    authUser={props.authUser}
-                    />
-                    : props.currentModalID === 'reg-modal' ? <ModalReg openModal={props.openModal}
-                                                                       closeModal={props.closeModal}
-                                                                       authUser={props.authUser}/>
-                        : props.currentModalID === 'pass-restore-modal' ? <ModalPassRestore/>
-                            : props.currentModalID === 'reg-success-modal' ? <ModalSuccessReg closeModal={props.closeModal}/>
-                                : props.currentModalID === 'auth-success-modal' ? <ModalSuccessAuth closeModal={props.closeModal}/> : <p></p>
-                }
+    return ReactDOM.createPortal(
+        <div className={s.modalBase} onClick={handleOutsideClick}>
+            <div className={s.modalBaseInner}>
+                <img src={regImg} alt="authImg" className={s.auth_img}/>
+                {props.currentModalID === "order-success-modal" ?
+                    <ModalSuccessOrder closeModal={props.closeModal}/> :
+                    <div className={s.auth_data}>
+                        <img onClick={props.closeModal} src={ix} alt="ix" className={s.ix}/>
+                        <div className={s.buttons}>
+                            <button onClick={() => {
+                                props.openModal('auth-modal')
+                            }}
+                                    className={`${s.log_in_btn} ${props.isModalActive && props.currentModalID === 'auth-modal' && s.isActive}`}>Войти
+                            </button>
+                            <button onClick={() => {
+                                props.openModal('reg-modal')
+                            }}
+                                    className={`${s.log_in_btn} ${props.isModalActive && props.currentModalID === 'reg-modal' && s.isActive}`}>Зарегистрироваться
+                            </button>
+                        </div>
+                        {props.currentModalID === 'auth-modal' ? <ModalAuth openModal={props.openModal}
+                                                                            closeModal={props.closeModal}
+                                                                            authUser={props.authUser}
+                            />
+                            : props.currentModalID === 'reg-modal' ? <ModalReg openModal={props.openModal}
+                                                                               closeModal={props.closeModal}
+                                                                               authUser={props.authUser}/>
+                                : props.currentModalID === 'pass-restore-modal' ? <ModalPassRestore/>
+                                    : props.currentModalID === 'reg-success-modal' ?
+                                        <ModalSuccessReg closeModal={props.closeModal}/>
+                                        : props.currentModalID === 'auth-success-modal' ?
+                                            <ModalSuccessAuth closeModal={props.closeModal}/> : <p></p>
+
+                        }
+                    </div>}
             </div>
-        </div>
-    </div>, modalRoot)
+        </div>, modalRoot)
 
 }
 

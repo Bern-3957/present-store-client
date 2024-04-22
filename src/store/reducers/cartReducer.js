@@ -1,41 +1,77 @@
 import {
-    DELETE_PRODUCT_FROM_CART,
-    SET_CARTS, SET_CARTS_PRODUCTS
+    CHANGE_CART_ITEM_QUANTITY, DECREMENT_CART_ITEM_QUANTITY,
+    DELETE_CART_ITEM, INCREMENT_CART_ITEM_QUANTITY,
+    SET_CART_ITEMS, SET_COST, SET_DISCOUNT,
 } from "../actions/actionTypes";
 
 let InitialState = {
-    carts: [],
-    cartsProducts: []
+    cartItems: [],
+    money: {
+        productsCost: 0,
+        discount: 0,
+        deliveryCost: 250,
+        finalCost: 0,
+    }
 };
 
 export const cartReducer = (state = InitialState, action) => {
     switch (action.type) {
-        case SET_CARTS:
+        case SET_CART_ITEMS:
             return {
                 ...state,
-                carts: action.carts
+                cartItems: action.cartItems
             }
 
-        case SET_CARTS_PRODUCTS:
-            return {
+        case DELETE_CART_ITEM:
+            const newState = {
                 ...state,
-                cartsProducts: action.cartsProducts
-            }
-        case DELETE_PRODUCT_FROM_CART:
-            debugger
-            const new_state = {
-                ...state,
-                carts: state.carts.filter(c => {
-                    debugger
-                    return c.product !== action.carts_product_id
+                cartItems: state.cartItems.filter(c => {
+
+                    return c.id !== action.cartItemId
                 }),
-                cartsProducts: state.cartsProducts.filter(cp => {
-                    debugger
-                    return cp.id !== action.carts_product_id
-                })
-            }
-            return new_state
 
+            }
+            return newState
+
+        case CHANGE_CART_ITEM_QUANTITY:
+            return {
+                ...state,
+                cartItems: state.cartItems.map((cartItem) => {
+                    if (action.cartItemId === cartItem.id) {
+                        return {
+                            ...cartItem,
+                            quantity: action.quantity
+                        };
+                    } else {
+                        return cartItem;
+                    }
+                })
+            };
+
+        case SET_COST:
+            const productsCost = state.cartItems.reduce((total, item) => {
+                return total + (item.quantity !== 0 ? item.product_details.price * item.quantity : 0);
+            }, 0);
+
+            const finalCost = productsCost - state.money.discount + state.money.deliveryCost;
+
+            return {
+                ...state,
+                money: {
+                    ...state.money,
+                    productsCost,
+                    finalCost: Math.max(finalCost, 0)
+                }
+            };
+        case SET_DISCOUNT:{
+            return {
+                ...state,
+                money: {
+                    ...state.money,
+                    discount: action.discount
+                }
+            }
+        }
         default:
             return state
     }

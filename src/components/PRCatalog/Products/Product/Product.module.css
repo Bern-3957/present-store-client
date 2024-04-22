@@ -34,6 +34,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     transition: white-space 0.3s, overflow 0.3s;
+    text-decoration: none;
 }
 .title:hover{
     overflow: visible;
@@ -105,5 +106,32 @@
 
     cursor: pointer;
     border: 0;
+}
+
+.add_to_basket_btn_product_in_cart{
+    width: 139px;
+    height: 52px;
+    display: flex;
+    padding: 15px 30px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    border-radius: 300px;
+    background: #3bdbee;
+
+    color: #FFF;
+    font-family: Open Sans, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    text-decoration: none;
+
+    position: absolute;
+    right: 30px;
+    bottom: 0px;
+
+    cursor: pointer;
+    border: 0;
+    text-align: center;
 }
 
