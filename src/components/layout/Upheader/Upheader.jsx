@@ -95,7 +95,7 @@ const Upheader = (props) => {
                                     ?
                                     <span className={s.upheader_buttons_login}>
                                         <Link to={ROUTES.PERSONAL_AREA}><img src={userIcon} alt="userIcon"/></Link>
-                                        <Link to={ROUTES.PERSONAL_AREA} style={{
+                                        <Link className={s.upheader_buttons_username} to={ROUTES.PERSONAL_AREA} style={{
                                             fontWeight: 400,
                                             fontSize: '16px',
                                             color: 'white',

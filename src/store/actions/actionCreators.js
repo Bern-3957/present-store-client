@@ -18,7 +18,12 @@ import {
     CHANGE_CART_QUANTITY,
     CHANGE_CART_ITEM_QUANTITY,
     INCREMENT_CART_ITEM_QUANTITY,
-    DECREMENT_CART_ITEM_QUANTITY, SET_CURRENT_PRODUCT, SET_CURRENT_PRODUCT_IMAGES, SET_COST, SET_DISCOUNT,
+    DECREMENT_CART_ITEM_QUANTITY,
+    SET_CURRENT_PRODUCT,
+    SET_CURRENT_PRODUCT_IMAGES,
+    SET_COST,
+    SET_DISCOUNT,
+    CHANGE_USER_INFO, LOGOUT_USER,
 } from "./actionTypes";
 
 export const setPresentConsistsCheckboxAC = (checkbox_id) => {
@@ -54,9 +59,12 @@ export const setIsAuthenticatedAC = (isUserAuth) => {
     return {type: SET_IS_AUTHENTICATED, isUserAuth}
 }
 export const changeUserInfoAC = (userInfo) => {
-    return {type: SET_IS_AUTHENTICATED, userInfo}
+    return {type: CHANGE_USER_INFO, userInfo}
 }
 
+export const logoutUserAC = () => {
+    return {type: LOGOUT_USER};
+};
 
 // ProductsReducer -----------------------------------------------------------------------
 

@@ -1,4 +1,4 @@
-import {CHANGE_USER_INFO, SET_USER_INFO,  SET_IS_AUTHENTICATED} from "../actions/actionTypes";
+import {CHANGE_USER_INFO, SET_USER_INFO, SET_IS_AUTHENTICATED, LOGOUT_USER} from "../actions/actionTypes";
 // import {CHANGE_USER_INFO, SET_IS_AUTHENTICATED, SET_USER_INFO, SET_USER_TOKEN} from "../actions/actionTypes";
 
 
@@ -40,9 +40,16 @@ export const userReducer = (state = InitialState, action) => {
 
             }
         case CHANGE_USER_INFO:
-            return {
+
+            return  {
                 ...state,
                 userInfo: {...state.userInfo,...action.userInfo}
+            }
+        case LOGOUT_USER:
+
+            return {
+                ...state,
+                userInfo: InitialState.userInfo,
             }
         default:
             return state

@@ -1,9 +1,10 @@
 .infoblockindex {
-    padding: 28px 82px;
+    padding: 28px 2px;
 }
 .adv_infoblock_inner {
     display: flex;
     gap: 113px;
+    flex-wrap: wrap;
     justify-content: center;
     margin-top: 80px;
 }

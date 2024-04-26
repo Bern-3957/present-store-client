@@ -1,12 +1,12 @@
 import {cartAPI, orderAPI, productsAPI, userAPI} from "../../api/api";
 import {
-    changeCartItemQuantityAC, decrementCartItemQuantityAC, incrementCartItemQuantityAC, openModalAC,
+    changeCartItemQuantityAC, decrementCartItemQuantityAC, incrementCartItemQuantityAC, logoutUserAC, openModalAC,
     setCartItemsAC, setCostAC, setCurrentProductAC, setCurrentProductImagesAC, setDiscountAC,
     setIsAuthenticatedAC,
     setProductsAC, setUserInfoAC,
     setUserTokenAC
 } from "../actions/actionCreators";
-import {getToken, setToken} from "../../customProvider/tokenProvider";
+import {getToken, removeToken, setToken} from "../../customProvider/tokenProvider";
 import {useSelector} from "react-redux";
 
 export const getProductsTC = () => {
@@ -19,7 +19,7 @@ export const getProductsTC = () => {
 
 export const getProductTC = (product_id) => {
     return (dispatch) => {
-        productsAPI.getProduct(product_id).then(response=>{
+        productsAPI.getProduct(product_id).then(response => {
             dispatch(setCurrentProductAC(response.data))
         })
     }
@@ -63,6 +63,19 @@ export const authUserTC = (dataForAuth) => (dispatch) => {
 
 }
 
+export const logoutUserTC = (userToken) => (dispatch) => {
+
+    userAPI.logoutUser(userToken).then(response => {
+        dispatch(setIsAuthenticatedAC(false))
+        dispatch(setCartItemsAC([]))
+        dispatch(logoutUserAC())
+
+        removeToken()
+    })
+
+}
+
+
 export const getCartsTC = (userToken) => (dispatch) => {
     cartAPI.getCarts(userToken).then(response => {
         dispatch(setCartItemsAC(response.data.cart_items))
@@ -77,7 +90,7 @@ export const deleteCartTC = (userToken, cart_id) => (dispatch) => {
     })
 }
 
-export const addNewCartTC = (userToken, product_id) =>  (dispatch, getState) => {
+export const addNewCartTC = (userToken, product_id) => (dispatch, getState) => {
     dispatch(getCartsTC(userToken))
 
     const cartItems = getState().cart.cartItems;
@@ -175,7 +188,7 @@ export const makeAnOrderTC = (userToken, orderItems, orderInfo, cartMoney) => as
     const response = await orderAPI.makeAnOrder(userToken, orderItems, orderInfo, cartMoney)
     console.log('response------------:::', response)
     debugger
-    if (response.status === 201){
+    if (response.status === 201) {
         const resp = await cartAPI.deleteAllCarts(userToken)
         dispatch(setCartItemsAC([]))
         dispatch(setCostAC())

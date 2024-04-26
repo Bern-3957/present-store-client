@@ -73,3 +73,83 @@
 .personalAreaButton:hover{
     background-color: #ece7e7;
 }
+
+
+
+@media (max-width: 820px) {
+
+    .personalAreaButton{
+        display: flex;
+        width: 277px;
+        padding: 20px 40px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+
+        border-radius: 300px;
+        border: 2px solid #AD6A75;
+
+        font-family: Open Sans;
+        font-size: 16px;
+        font-weight: 400;
+        background-color: white;
+        cursor: pointer;
+
+        transition: background-color .1s;
+    }
+
+}
+@media (max-width: 690px) {
+
+    .personalAreaButton{
+        display: flex;
+        width: 237px;
+        padding: 20px 40px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+
+        border-radius: 300px;
+        border: 2px solid #AD6A75;
+
+        font-family: Open Sans;
+        font-size: 16px;
+        font-weight: 400;
+        background-color: white;
+        cursor: pointer;
+
+        transition: background-color .1s;
+    }
+
+}
+
+@media (max-width: 650px) {
+    .buttons{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .personalAreaButton{
+        display: flex;
+        width: 237px;
+        padding: 20px 40px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+
+        border-radius: 300px;
+        border: 2px solid #AD6A75;
+
+        font-family: Open Sans;
+        font-size: 16px;
+        font-weight: 400;
+        background-color: white;
+        cursor: pointer;
+
+        transition: background-color .1s;
+    }
+
+}

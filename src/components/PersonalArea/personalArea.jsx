@@ -18,6 +18,7 @@ const  PersonalArea = (props) =>{
                               isAuthenticated={props.isAuthenticated}
                               userInfo={props.userInfo}
                               userToken={props.userToken}
+                              handleLogout={props.handleLogout}
                               changeUserInfo={props.changeUserInfo}/> : props.personalAreaPage === "myDiscount" ?
                     <MyDiscount/>: props.personalAreaPage === "myOrders" ? <MyOrdersContainer userToken={props.userToken}/> : <p></p>}
         </div>

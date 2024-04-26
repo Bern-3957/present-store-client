@@ -1,5 +1,5 @@
 .cart{
-    padding: 70px 0;
+    padding: 70px 20px;
 }
 
 .cart_inner{
@@ -163,7 +163,7 @@
 
 .cart_form{
     width: 540px;
-    height: 1303px;
+    min-height: 1303px;
 
     border: 1px solid #D6B3B1;
     background: #FFF;
@@ -320,3 +320,236 @@
     margin-top: 24px;
     cursor: pointer;
 }
+
+
+@media (max-width: 1540px) {
+    .cart_item_inner{
+        position: relative;
+        justify-content: flex-start;
+        gap: 40px;
+    }
+
+    .delete_from_cart_btn{
+        position: absolute;
+        left: 207px;
+        top: 180px;
+    }
+}
+
+@media (max-width: 1300px) {
+    .cart_inner{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .cart_item_inner{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .delete_from_cart_btn{
+        position: static;
+
+    }
+
+    .cart_form{
+        width: 910px;
+        min-height: 1003px;
+
+        border: 1px solid #D6B3B1;
+        background: #FFF;
+
+        padding: 29px 90px;
+    }
+
+    .cart_form_inner{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+        justify-content: center;
+    }
+
+    .cart_form_title{
+        text-align: center;
+    }
+
+    .cart_form_item_title{
+        text-align: center;
+    }
+
+    .delivery_top_input_inner{
+        margin-top: 17px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .order_comment_textarea{
+        width: 264px;
+        height: 278px;
+    }
+
+}
+@media (max-width: 1170px) {
+
+    .cart_list{
+        width: 910px;
+        mai-height: 866px;
+
+        border: 1px solid #D6B3B1;
+        background: #FFF;
+
+        padding: 47px 104px;
+    }
+
+    .cart_item_inner{
+        position: relative;
+        justify-content: center;
+        gap: 40px;
+    }
+
+    .delete_from_cart_btn{
+        position: absolute;
+        left: 347px;
+        top: 180px;
+    }
+
+}
+
+@media (max-width: 940px) {
+
+    .cart_list{
+        width: 710px;
+        mai-height: 866px;
+
+        border: 1px solid #D6B3B1;
+        background: #FFF;
+
+        padding: 47px 104px;
+    }
+
+    .cart_item_inner{
+        position: relative;
+        justify-content: center;
+        gap: 40px;
+    }
+
+    .delete_from_cart_btn{
+        position: absolute;
+        left: 247px;
+        top: 180px;
+    }
+
+    .cart_form{
+        width: 710px;
+        min-height: 1003px;
+
+        border: 1px solid #D6B3B1;
+        background: #FFF;
+
+        padding: 29px 90px;
+    }
+
+    .order_comment_textarea{
+        width: 224px;
+        height: 228px;
+    }
+
+}
+@media (max-width: 740px) {
+
+    .cart_list{
+        width: 510px;
+        min-height: 866px;
+
+        border: 1px solid #D6B3B1;
+        background: #FFF;
+
+        padding: 47px 104px;
+    }
+
+    .cart_item_inner{
+        position: relative;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .cart_item_info{
+        align-items: center;
+    }
+
+    .delete_from_cart_btn{
+        position: static;
+    }
+
+    .cart_form{
+        width: 510px;
+        min-height: 1003px;
+
+        border: 1px solid #D6B3B1;
+        background: #FFF;
+
+        padding: 29px 90px;
+    }
+
+    .order_comment_textarea{
+        width: 224px;
+        height: 228px;
+    }
+
+}
+
+@media (max-width: 530px) {
+
+    .cart_list{
+        width: 410px;
+        min-height: 866px;
+
+        border: 1px solid #D6B3B1;
+        background: #FFF;
+
+        padding: 47px 104px;
+    }
+
+    .cart_item_inner{
+        position: relative;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .cart_item_info{
+        align-items: center;
+    }
+
+    .delete_from_cart_btn{
+        position: static;
+    }
+
+    .cart_form{
+        width: 410px;
+        min-height: 1003px;
+
+        border: 1px solid #D6B3B1;
+        background: #FFF;
+
+        padding: 29px 90px;
+    }
+
+
+    .cart_form_inner{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .order_comment_textarea{
+        width: 224px;
+        height: 228px;
+    }
+
+}
+

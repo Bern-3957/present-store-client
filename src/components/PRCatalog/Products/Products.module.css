@@ -25,3 +25,14 @@
     min-height: 700px;
 
 }
+
+@media (max-width: 670px) {
+
+
+    .products_inner{
+        align-items: center;
+        padding: 30px 0 80px 32px;
+        position: relative;
+        min-height: 700px;
+    }
+}

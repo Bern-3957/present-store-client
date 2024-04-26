@@ -11,7 +11,7 @@ const CartList = (props) => {
     return <div className={s.cart_list}>
         {props.carts.length !== 0 ?
                 props.carts.map((cartsItem) => {
-                    debugger
+
                     // const cartsProductsItem = props.cartsProducts.find((item) => item.id === cartsItem.product);
                     // if (cartsProductsItem) {
 

@@ -10,10 +10,10 @@ import MyOrders from "./MyOrders";
 
 const MyOrdersContainer = (props) => {
     const [orders, setOrders] = useState({})
-    debugger
+
     useEffect(() => {
         orderAPI.getOrders(props.userToken.value).then(response=>{
-            debugger
+
             console.log(response)
             setOrders(response.data.orders)
         })

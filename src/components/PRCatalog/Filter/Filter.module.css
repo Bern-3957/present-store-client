@@ -2,6 +2,7 @@
     margin-top: 95px;
     width: 255px;
     position: relative;
+    padding: 0 20px 0  0;
 }
 .pr_catalog_filter_inner {
     display: flex;
@@ -24,7 +25,8 @@
     font-size: 16px;
     font-weight: 400;
     text-decoration: underline;
-    margin: 0 0 0 100px;
+    /*margin: 0 0 0 100px;*/
+    text-align: right;
 }
 
 .pr_catalog_filter:after {
@@ -37,5 +39,6 @@
     right: 0;
     top: 0;
 }
+
 
 

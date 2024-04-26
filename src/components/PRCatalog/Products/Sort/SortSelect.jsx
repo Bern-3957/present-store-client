@@ -17,9 +17,9 @@ const SortSelect = (props) => {
     return <div className={s.select}>
         <div className={s.title}>Сортировать:</div>
         <div className={s.inner}>
-            <div className={s.header}>
+            <div onClick={openSelect} className={s.header}>
                 <span className={s.select_current} id="current_price_mode">{currentSortOption && currentSortOption.title ? currentSortOption.title : 'По умолчанию'}</span>
-                <img onClick={openSelect} src={otkrivashka} className={s.select_icon}/>
+                <img src={otkrivashka} className={isBodyVisible && s.select_icon}/>
             </div>
 
             <div className={`${s.body} ${isBodyVisible ? s.bodyVisible : ""}`}>

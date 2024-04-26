@@ -2,14 +2,18 @@
     background: #F9F3EF;
     height: 106px;
     margin-top: 5px;
+
 }
+
 .header_inner {
     height: 106px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 187px;
+    position: relative;
 }
+
 .header_main {
     display: flex;
     flex-direction: column;
@@ -40,6 +44,7 @@
 .header_nav {
     display: flex;
     gap: 92px;
+
 }
 .header_nav_item {
     font-weight: 400;
@@ -47,3 +52,206 @@
     color: #464646;
     text-decoration: none;
 }
+
+.header_burger_nav{
+    position: absolute;
+
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 106px;
+    color: white;
+    background-color: rgba(168, 105, 114, 100);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    justify-content: flex-start;
+    z-index: 10;
+    padding: 100px 30px 30px;
+
+    .header_nav_item{
+        color: white;
+    }
+}
+
+.header_burger{
+    display: none;
+    width: 44px;
+    height: 44px;
+    background-color: #AD6A75;
+    border-radius: 50%;
+}
+
+@media (max-width: 1690px) {
+    .header {
+        background: #F9F3EF;
+        height: 106px;
+        margin-top: 5px;
+    }
+
+    .header_inner {
+        height: 106px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 187px;
+    }
+
+    .header_button {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 10px;
+        gap: 10px;
+        width: 252px;
+        height: 60px;
+        border: 2px solid #AD6A75;
+        border-radius: 4px;
+        font-weight: 400;
+        font-size: 22px;
+        color: #AD6A75;
+        text-decoration: none;
+    }
+    .header_nav {
+        display: flex;
+        gap: 62px;
+    }
+
+}
+
+@media (max-width: 1515px)  {
+    .header {
+        background: #F9F3EF;
+        height: 106px;
+        margin-top: 5px;
+    }
+
+    .header_inner {
+        height: 106px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 187px;
+    }
+
+    .header_button {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 10px;
+        gap: 10px;
+        width: 252px;
+        height: 60px;
+        border: 2px solid #AD6A75;
+        border-radius: 4px;
+        font-weight: 400;
+        font-size: 22px;
+        color: #AD6A75;
+        text-decoration: none;
+    }
+    .header_nav {
+        display: flex;
+        gap: 52px;
+    }
+
+}
+
+@media (max-width: 1420px) {
+    .header {
+        background: #F9F3EF;
+        height: 106px;
+        margin-top: 5px;
+    }
+
+    .header_inner {
+        height: 106px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 187px;
+    }
+
+    .header_button {
+        width: 222px;
+
+    }
+    .header_nav {
+        display: flex;
+        gap: 38px;
+    }
+
+}
+
+@media (max-width: 1250px) {
+    .header {
+        background: #F9F3EF;
+        height: 106px;
+        margin-top: 5px;
+    }
+
+    .header_inner {
+        height: 106px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 187px;
+    }
+
+    .header_button {
+        width: 222px;
+
+    }
+    .header_nav {
+        display: none;
+        gap: 38px;
+    }
+    .header_burger{
+        display: flex;
+        width: 44px;
+        min-width: 44px;
+        height: 44px;
+        background-color: #AD6A75;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+}
+
+@media (max-width: 800px) {
+    .header {
+        background: #F9F3EF;
+        height: 106px;
+        margin-top: 5px;
+    }
+
+    .header_inner {
+        height: 106px;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        align-items: center;
+        padding: 0 70px;
+    }
+    .header_main_img {
+        display: none;
+    }
+    .header_button {
+        font-weight: 400;
+        font-size: 22px;
+        color: #AD6A75;
+        text-decoration: none;
+        display: flex;
+        border: none;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+
+}
+

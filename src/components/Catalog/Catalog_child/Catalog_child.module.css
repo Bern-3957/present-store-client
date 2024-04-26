@@ -4,6 +4,7 @@
 }
 .catalog_child_inner {
     display: flex;
+    justify-content: center;
     gap: 25px;
     flex-wrap: wrap;
 }

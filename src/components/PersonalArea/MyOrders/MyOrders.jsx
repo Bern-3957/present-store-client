@@ -26,9 +26,10 @@ const MyOrders = (props) => {
                                     <div
                                         style={{
                                             display: "flex",
-                                            alignItems: "center",
+                                            alignItems: "flex-start",
                                             justifyContent: "center",
-                                            gap: "60px",
+                                            flexDirection: "column",
+                                            gap: "10px",
                                         }}>
                                         <div className={s.productTitle}>{item.product.title}</div>
                                         <div className={s.productVendorCode}>арт. {item.product.vendor_code}</div>

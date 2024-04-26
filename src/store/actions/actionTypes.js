@@ -9,6 +9,7 @@ export const SET_USER_INFO = 'SET_USER_INFO'
 export const SET_USER_TOKEN = 'SET_USER_TOKEN'
 export const SET_IS_AUTHENTICATED = 'SET_IS_AUTHENTICATED'
 export const CHANGE_USER_INFO = 'CHANGE_USER_INFO'
+export const LOGOUT_USER = 'LOGOUT_USER'
 
 
 

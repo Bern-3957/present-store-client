@@ -1,9 +1,10 @@
 import axios from "axios";
 
+const baseAppURL = 'http://127.0.0.1:8000/api/v1/'
 
 export const userAPI = {
     regUser(data) {
-        return axios.post('http://127.0.0.1:8000/api/v1/auth/users/', {
+        return axios.post(`${baseAppURL}auth/users/`, {
             'first_name': data.first_name,
             'username': data.username,
             'email': data.email,
@@ -22,51 +23,54 @@ export const userAPI = {
     },
 
     aboutUser(auth_token) {
-        return axios.get('http://127.0.0.1:8000/api/v1/auth/users/me/', {
+
+        return axios.get(`${baseAppURL}auth/users/me/`, {
             headers: {
                 'Authorization': `Token ${auth_token}`
             }
         })
     },
 
-    changeUserInfo(auth_token, data){
-        axios.patch("http://127.0.0.1:8000/api/v1/auth/users/me/", data, {
+    changeUserInfo(auth_token, data) {
+
+        axios.patch(`${baseAppURL}auth/users/me/`, data, {
             headers: {
-                Authorization: `Token ${auth_token}`,
+                Authorization: `Token ${auth_token.value}`,
             },
         })
     },
-    logoutUser(auth_token){
-        axios.post('http://127.0.0.1:8000/auth/token/logout/', {}, {
-                headers: {
-                    'Authorization': `Token ${auth_token}`
-                }
-            })
+    logoutUser(auth_token) {
+
+        return axios.post('http://127.0.0.1:8000/auth/token/logout/', {}, {
+            headers: {
+                'Authorization': `Token ${auth_token.value}`
+            }
+        })
     }
 }
 export const productsAPI = {
-    getProducts(){
-        return axios.get('http://127.0.0.1:8000/api/v1/products/')
+    getProducts() {
+        return axios.get(`${baseAppURL}products-app/products/`)
     },
-    getProduct(product_id){
-        return axios.get(`http://127.0.0.1:8000/api/v1/product/${product_id}/`)
+    getProduct(product_id) {
+        return axios.get(`${baseAppURL}products-app/product/${product_id}/`)
     },
     getProductImages(product_id) {
-        return axios.get(`http://127.0.0.1:8000/api/v1/images/${product_id}/`)
+        return axios.get(`${baseAppURL}products-app/images/${product_id}/`)
     }
 }
 
 
 export const cartAPI = {
-    getCarts(userToken){
-        return axios.get('http://127.0.0.1:8000/api/v1/cart/', {
+    getCarts(userToken) {
+        return axios.get(`${baseAppURL}products-app/cart/`, {
             headers: {
                 'Authorization': `Token ${userToken}`
             }
         })
     },
-    addNewCart(userToken, product_id){
-        return axios.post('http://127.0.0.1:8000/api/v1/cart/', {
+    addNewCart(userToken, product_id) {
+        return axios.post(`${baseAppURL}products-app/cart/`, {
             product_id: product_id,
         }, {
             headers: {
@@ -74,15 +78,15 @@ export const cartAPI = {
             }
         })
     },
-    deleteCart(userToken, cart_id){
-        return axios.delete(`http://127.0.0.1:8000/api/v1/cart/${cart_id}/`, {
+    deleteCart(userToken, cart_id) {
+        return axios.delete(`${baseAppURL}products-app/cart/${cart_id}/`, {
             headers: {
                 'Authorization': `Token ${userToken}`
             }
         })
     },
-    changeCartItemQuantity(userToken, cart_id, quantity){
-        return axios.patch(`http://127.0.0.1:8000/api/v1/cart/${cart_id}/`, {
+    changeCartItemQuantity(userToken, cart_id, quantity) {
+        return axios.patch(`${baseAppURL}products-app/cart/${cart_id}/`, {
             quantity: quantity,
         }, {
             headers: {
@@ -90,8 +94,8 @@ export const cartAPI = {
             }
         })
     },
-    deleteAllCarts(userToken){
-        return axios.delete(`http://127.0.0.1:8000/api/v1/cart/delete-all-carts/`, {
+    deleteAllCarts(userToken) {
+        return axios.delete(`${baseAppURL}products-app/cart/delete-all-carts/`, {
             headers: {
                 'Authorization': `Token ${userToken}`
             }
@@ -100,21 +104,21 @@ export const cartAPI = {
 }
 
 export const orderAPI = {
-    makeAnOrder(userToken, orderItems, orderInfo, cartMoney){
+    makeAnOrder(userToken, orderItems, orderInfo, cartMoney) {
 
-        return axios.post(`http://127.0.0.1:8000/api/v1/order/`, {
+        return axios.post(`${baseAppURL}products-app/order/`, {
             orderItems: orderItems,
             orderInfo: orderInfo,
             cartMoney: cartMoney,
-        },  {
+        }, {
             headers: {
                 'Authorization': `Token ${userToken}`
             }
         })
     },
 
-    getOrders(userToken){
-        return axios.get(`http://127.0.0.1:8000/api/v1/order/`, {
+    getOrders(userToken) {
+        return axios.get(`${baseAppURL}products-app/order/`, {
             headers: {
                 'Authorization': `Token ${userToken}`
             }

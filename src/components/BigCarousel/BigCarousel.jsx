@@ -57,7 +57,7 @@ const BigCarousel = (props) => {
                 <div className={s.all_pages_container} style={{transform: `translateX(${offset}px)`}}>
 
                         <div className={`${s.item} ${s.item1}`}>
-                            <img style={{width: '100%'}} src={slider_first} alt="slider_img"/>
+                            <img  className={s.itemImg} src={slider_first} alt="slider_img"/>
                             <div className={s.myslides_inner}>
                                 <h1 className={s.myslides_title}>Оригинальные подарки с идеальным стилем</h1>
                                 <h4 className={s.myslides_subtitle}>Атмосферные подарочные наборы на любой случай </h4>
@@ -65,8 +65,8 @@ const BigCarousel = (props) => {
                             </div>
                         </div>
 
-                        <div className={`${s.item} ${s.item1}`}>
-                            <img style={{width: '100%'}} src={slider_first} alt="slider_img"/>
+                        <div className={`${s.item}  ${s.item1}`}>
+                            <img className={s.itemImg} src={slider_first} alt="slider_img"/>
                             <div className={s.myslides_inner}>
                                 <h1 className={s.myslides_title}>Неоригинальные подарки с идеальным стилем</h1>
                                 <h4 className={s.myslides_subtitle}>Атмосферные подарочные наборы на любой случай </h4>
@@ -74,15 +74,15 @@ const BigCarousel = (props) => {
                             </div>
                         </div>
 
-                        <div className={`${s.item} ${s.item1}`}>
-                            <img style={{width: '100%'}} src={slider_first} alt="slider_img"/>
+                        <div className={`${s.item}  ${s.item1}`}>
+                            <img className={s.itemImg} src={slider_first} alt="slider_img"/>
                             <div className={s.myslides_inner}>
                                 <h1 className={s.myslides_title}>Оригинальные подарки с идеальным стилем</h1>
                                 <h4 className={s.myslides_subtitle}>Атмосферные подарочные наборы на любой случай </h4>
                                 <a href="#" className={s.myslides_button}>Смотреть в каталоге</a>
                             </div>
                         </div>
-                    </div>
+                </div>
             </div>
             <div className={s.dotInner}>
                 <span className={`${s.dot}`} onClick={()=>{
