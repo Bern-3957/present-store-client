@@ -85,7 +85,7 @@ export const getCartsTC = (userToken) => (dispatch) => {
 
 export const deleteCartTC = (userToken, cart_id) => (dispatch) => {
     cartAPI.deleteCart(userToken, cart_id).then(response => {
-        console.log(response)
+        console.log('------------++++++++++++++++++',response)
         dispatch(setCostAC())
     })
 }
@@ -185,7 +185,8 @@ export const decrementCartItemQuantityTC = (userToken, cart_id) => (dispatch, ge
 }
 
 export const makeAnOrderTC = (userToken, orderItems, orderInfo, cartMoney) => async (dispatch, getState) => {
-    const response = await orderAPI.makeAnOrder(userToken, orderItems, orderInfo, cartMoney)
+    const order = {orderItems, orderInfo, cartMoney}
+    const response = await orderAPI.makeAnOrder(userToken, order)
     console.log('response------------:::', response)
     debugger
     if (response.status === 201) {

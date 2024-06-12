@@ -21,7 +21,7 @@ const AboutProduct = (props) => {
     const getImage = (type) => {
         switch (type) {
             case 'GET-MINI-IMAGE':
-                if (props.currentProduct.images && props.currentProduct.images.length !== 0){
+                if (props.currentProduct.images && props.currentProduct.images.length !== 0) {
                     return <div className={s.miniImages}>
                         {props.currentProduct.images.map(item => {
                             return <div onClick={() => {
@@ -61,7 +61,7 @@ const AboutProduct = (props) => {
                                  props.currentProduct.images[0].image && props.currentProduct.images[0].image}
                              alt="bigImage"/>
                     </div>
-                } else{
+                } else {
                     return <div className={s.currentImageCont}>
                         <img className={s.currentImage} src={bigImage} alt="bigImage"/>
                     </div>
@@ -74,13 +74,13 @@ const AboutProduct = (props) => {
         <div className="container">
             <div className={s.inner}>
 
-                    <div className={s.images}>
-                        {getImage('GET-MINI-IMAGE')}
-                        {getImage('GET-CURRENT-IMAGE')}
-                    </div>
+                <div className={s.images}>
+                    {getImage('GET-MINI-IMAGE')}
+                    {getImage('GET-CURRENT-IMAGE')}
+                </div>
 
                 <div className={s.info}>
-                <h2 className={s.title}>{props.currentProduct.title}</h2>
+                    <h2 className={s.title}>{props.currentProduct.title}</h2>
                     <div className={s.art}>art. {props.currentProduct.vendor_code}</div>
                     <div className={s.description}>
                         <div className={s.description_title}>Описание товара</div>

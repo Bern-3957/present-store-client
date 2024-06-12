@@ -54,7 +54,6 @@ const ProductContainer = () => {
 
     const getProduct = async (product_id) => {
         await dispatch(getProductTC(product_id))
-        debugger
     }
 
     return <Product getProduct={getProduct}

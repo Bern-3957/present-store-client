@@ -186,3 +186,80 @@
     text-decoration-line: underline;
     cursor: pointer;
 }
+
+
+@media (max-width: 1140px) {
+    .auth_img {
+        display: none;
+    }
+
+    .modalBase {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон для модального окна */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .modalBaseInner {
+        position: absolute;
+        width: 710px;
+        height: 659px;
+        background-color: #ffffff;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        display: flex;
+        gap: 40px;
+        justify-content: center;
+    }
+}
+@media (max-width: 740px) {
+
+    .modalBaseInner {
+        width: 610px;
+        height: 709px;
+    }
+}
+
+@media (max-width: 640px) {
+
+    .modalBaseInner {
+        width: 510px;
+        height: 709px;
+    }
+
+    .buttons {
+        display: flex;
+        gap: 20px;
+    }
+
+    .log_in_btn {
+        display: flex;
+        width: 207px;
+    }
+}
+@media (max-width: 540px) {
+
+    .modalBaseInner {
+        width: 410px;
+        height: 709px;
+    }
+    .buttons{
+        margin-top: 10px;
+    }
+    .log_in_btn {
+        width: 170px;
+    }
+
+    .auth_form {
+        margin-top: 50px;
+
+    }
+}

@@ -16,6 +16,7 @@ const deliveryAddressMethods = [
 
 
 const CartForm = (props) => {
+    debugger
     const {
         register,
         handleSubmit,
@@ -30,9 +31,7 @@ const CartForm = (props) => {
         props.sendOrderDataToServer(data)
         reset()
     }
-    const orderReceiveMethod = watch("order_receive_method", "1");
-
-    const deliveryAddressMethod = watch("delivery_method", "1");
+    const orderReceiveMethod = watch("order_receive_method", "courier");
 
     return <form onSubmit={handleSubmit(onSubmit)} className={s.cart_form}>
         <div className={s.cart_form_title}>Оформление заказа</div>
@@ -51,58 +50,50 @@ const CartForm = (props) => {
                     Способ получения
                 </div>
                 <div className={s.receive_radio_inner}>
-                    <div className={s.receive_radio}><input defaultChecked {...register('order_receive_method')} value={"1"}
+                    <div className={s.receive_radio}><input defaultChecked {...register('order_receive_method')} value={"courier"}
                                                              style={{width: "24px"}} id="receive1" type="radio"/><label
                         htmlFor="receive1">Доставка
                         курьером по Москве</label>
                     </div>
-                    <div className={s.receive_radio}><input {...register('order_receive_method')} value={"2"}
+                    <div className={s.receive_radio}><input {...register('order_receive_method')} value={"sdek"}
                                                             style={{width: "24px"}} id="receive2" type="radio"/><label
                         htmlFor="receive2">Доставка
                         СДЭК</label>
                     </div>
-                    <div className={s.receive_radio}><input {...register('order_receive_method')} value={"3"}
+                    <div className={s.receive_radio}><input {...register('order_receive_method')} value={"pickup"}
                                                             style={{width: "24px"}} id="receive3" type="radio"/><label
                         htmlFor="receive3">Самовывоз</label>
                     </div>
                 </div>
             </div>
-            {orderReceiveMethod !== "3" &&
+            {orderReceiveMethod !== "pickup" &&
             <div className={s.cart_form_item}>
                 <div className={s.cart_form_item_title}>
                     Адрес доставки
                 </div>
 
-                <div className={s.delivery_radio_inner}>
-                    <div className={s.delivery_radio}>
-                        <input {...register('delivery_method')} style={{width: "24px"}} value={"1"} id="delivery1"
-                               type="radio" defaultChecked/>
-                        <label htmlFor="delivery1">На адрес</label>
-                    </div>
-                    <div className={s.delivery_radio}>
-                        <input {...register('delivery_method')} style={{width: "24px"}} value={"2"} id="delivery2"
-                               type="radio"/>
-                        <label htmlFor="delivery2">До станции метро</label>
-                    </div>
+                {/*<div className={s.delivery_radio_inner}>*/}
+                {/*    <div className={s.delivery_radio}>*/}
+                {/*        <input {...register('delivery_method')} style={{width: "24px"}} value={"1"} id="delivery1"*/}
+                {/*               type="radio" defaultChecked/>*/}
+                {/*        <label htmlFor="delivery1">На адрес</label>*/}
+                {/*    </div>*/}
+                {/*    <div className={s.delivery_radio}>*/}
+                {/*        <input {...register('delivery_method')} style={{width: "24px"}} value={"2"} id="delivery2"*/}
+                {/*               type="radio"/>*/}
+                {/*        <label htmlFor="delivery2">До станции метро</label>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
+
+                <div className={s.delivery_top_input_inner}>
+                    <input {...register('address')} className={s.delivery_input_top} placeholder="Полный адрес" type="text"/>
                 </div>
-                {deliveryAddressMethod === "1" && <>
-                    <div className={s.delivery_top_input_inner}>
-                        <input {...register('town')} className={s.delivery_input_top} placeholder="Город" type="text"/>
-                        <input {...register('street')} className={s.delivery_input_top} placeholder="Улица"
-                               type="text"/>
-                    </div>
-                    <div className={s.delivery_bottom_input_inner}>
-                        <input {...register('house')} className={s.delivery_input_bottom} placeholder="Дом"
-                               type="text"/>
-                        <input {...register('entrance')} className={s.delivery_input_bottom} placeholder="Подъезд"
-                               type="text"/>
-                        <input {...register('apartment')} className={s.delivery_input_bottom} placeholder="Квартира"
-                               type="text"/>
-                    </div>
-                </>}
-                {deliveryAddressMethod === "2" && <>
-                    <input {...register('metro_name')} style={{marginTop: "25px", transition: "margin-top 0.9s ease-in-out"}} placeholder={"Название метро"} className={s.contact_input}  type="text"/>
-                </>}
+
+                {/*{deliveryAddressMethod === "2" && <>*/}
+                {/*    <input {...register('metro_name')}*/}
+                {/*           style={{marginTop: "25px", transition: "margin-top 0.9s ease-in-out"}}*/}
+                {/*           placeholder={"Название метро"} className={s.contact_input} type="text"/>*/}
+                {/*</>}*/}
             </div>
             }
             <div className={s.cart_form_item}>

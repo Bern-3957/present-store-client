@@ -5,6 +5,7 @@ import CartForm from "./CartForm";
 
 
 const Cart = (props) => {
+    debugger
     return <div className={s.cart}>
         <div className="container">
             <h2 className={s.title}>Корзина</h2>

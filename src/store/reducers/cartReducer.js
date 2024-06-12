@@ -59,7 +59,7 @@ export const cartReducer = (state = InitialState, action) => {
                 ...state,
                 money: {
                     ...state.money,
-                    productsCost,
+                    productsCost: productsCost,
                     finalCost: Math.max(finalCost, 0)
                 }
             };

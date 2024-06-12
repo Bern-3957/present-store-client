@@ -35,7 +35,7 @@ const PersonalAreaContainer = () =>{
         }
     };
 
-    if (isAuthenticated === false){
+    if (isAuthenticated === false && !userToken?.value){
         return <Navigate to={"/"}/>
     }
     return <PersonalArea changeUserInfo={changeUserInfo}

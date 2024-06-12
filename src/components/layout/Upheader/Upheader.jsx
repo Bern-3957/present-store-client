@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import logo from './../../../assets/icons/upheader/logo.svg'
 import previous from './../../../assets/icons/upheader/previous.svg'
 import Quality from './../../../assets/icons/upheader/Quality.svg'
@@ -18,16 +18,35 @@ import {ROUTES} from "../../../utils/routes";
 // import AuthWrapper from "../../../hoc/withAuth";
 
 const Upheader = (props) => {
+    const [offSet, setOffSet] = useState(0)
+    const slideWidth = 156
+    const totalSlides = 4
+
+    const showPreviousSlides = () => {
+        setOffSet((currentOffSet) => {
+            const newOffset = currentOffSet + slideWidth;
+            return newOffset > 0 ? -((totalSlides - 3) * slideWidth) : newOffset;
+        });
+    }
+
+    const showNextSlides = () => {
+        setOffSet((currentOffSet) => {
+            const newOffset = currentOffSet - slideWidth;
+            debugger
+            return newOffset < -((totalSlides - 3) * slideWidth) ? 0 : newOffset;
+        });
+    }
     return (
                 <div className={s.upheader}>
                     <div className="container">
                         <div className={s.upheader_inner}>
                             <img className={s.upheader_logo} src={logo} alt="r"/>
                             <div className={s.upheader_slider}>
-                                <button className={s.upheader_slider_previous}><img src={previous} alt="previous"/>
+                                <button onClick={()=>{showPreviousSlides()
+                                }} className={s.upheader_slider_previous}><img src={previous} alt="previous"/>
                                 </button>
                                 <div className={s.upheader_slider_inner}>
-                                    <div className={s.upheader_slider_line}>
+                                    <div className={s.upheader_slider_line} style={{transform: `translateX(${offSet}px)`}}>
 
                                         <div className={s.upheader_slider_line_item}>
 
@@ -66,7 +85,8 @@ const Upheader = (props) => {
 
                                     </div>
                                 </div>
-                                <button className={s.upheader_slider_next}><img src={next} alt="next"/></button>
+                                <button onClick={()=>{showNextSlides()
+                                }} className={s.upheader_slider_next}><img src={next} alt="next"/></button>
                             </div>
                             <div className={s.upheader_contacts}>
                                 <div className={s.upheader_contacts_line1}>
@@ -93,7 +113,7 @@ const Upheader = (props) => {
 
                                 {props.isAuthenticated
                                     ?
-                                    <span className={s.upheader_buttons_login}>
+                                    <Link to={ROUTES.PERSONAL_AREA} className={s.upheader_buttons_login}>
                                         <Link to={ROUTES.PERSONAL_AREA}><img src={userIcon} alt="userIcon"/></Link>
                                         <Link className={s.upheader_buttons_username} to={ROUTES.PERSONAL_AREA} style={{
                                             fontWeight: 400,
@@ -101,7 +121,7 @@ const Upheader = (props) => {
                                             color: 'white',
                                             textDecoration: 'none',
                                         }}>{props.userInfo.username}</Link>
-                                        </span>
+                                        </Link>
                                     :
                                     <span onClick={() => {
                                         props.openModal('auth-modal')

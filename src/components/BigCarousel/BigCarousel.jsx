@@ -11,10 +11,27 @@ const BigCarousel = (props) => {
     const [offset, setOffset] = useState(0);
     const slideWidth = 1680;
     const totalSlides = 3; // Замените на фактическое количество слайдов
+    const [activeDot, setActiveDot] = useState(1)
 
     const handleLeftArrowClick = () => {
         setOffset((currentOffset) => {
             const newOffset = currentOffset + slideWidth;
+
+            switch (newOffset){
+                case 0:
+                    setActiveDot(1)
+                    break
+                case -1680:
+                    setActiveDot(2)
+                    break
+                case -3360:
+                    setActiveDot(3)
+                    break
+                case 1680:
+                    setActiveDot(3)
+                    break
+                default: setActiveDot(1)
+            }
             return newOffset > 0 ? -((totalSlides - 1) * slideWidth) : newOffset;
         });
     };
@@ -22,6 +39,19 @@ const BigCarousel = (props) => {
     const handleRightArrowClick = () => {
         setOffset((currentOffset) => {
             const newOffset = currentOffset - slideWidth;
+
+            switch (newOffset){
+                case 0:
+                    setActiveDot(1)
+                    break
+                case -1680:
+                    setActiveDot(2)
+                    break
+                case -3360:
+                    setActiveDot(3)
+                    break
+                default: setActiveDot(1)
+            }
             return newOffset < -((totalSlides - 1) * slideWidth) ? 0 : newOffset;
         });
     };
@@ -40,10 +70,18 @@ const BigCarousel = (props) => {
     // }
     const SetChooselide = (slide) => {
         setOffset((currentOffset) => {
+            debugger
             switch (slide){
-                case 1: return 0
-                case 2: return -1680
-                case 3: return -3360
+                case 1: {
+                    setActiveDot(1)
+                    return 0
+                }
+                case 2: {
+                    setActiveDot(2)
+                    return -1680}
+                case 3: {
+                    setActiveDot(3)
+                    return -3360}
                 default: return 0
             }
         })
@@ -85,13 +123,13 @@ const BigCarousel = (props) => {
                 </div>
             </div>
             <div className={s.dotInner}>
-                <span className={`${s.dot}`} onClick={()=>{
+                <span className={`${s.dot} ${activeDot===1 ? s.activeDot : ''}`} onClick={()=>{
                     SetChooselide(1)
                 }}></span>
-                <span className={`${s.dot}`} onClick={()=>{
+                <span className={`${s.dot} ${activeDot===2 ? s.activeDot : ''}`} onClick={()=>{
                     SetChooselide(2)
                     }}></span>
-                <span className={`${s.dot}`} onClick={()=>{
+                <span className={`${s.dot} ${activeDot===3 ? s.activeDot : ''}`} onClick={()=>{
                     SetChooselide(3)
                 }}></span>
             </div>

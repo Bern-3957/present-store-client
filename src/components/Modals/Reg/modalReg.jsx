@@ -45,7 +45,7 @@ const ModalReg = (props) => {
                     с Положением о персональных данных и конфиденциальности.</label>
             </div>
         </div>
-        <button type="submit" className={s.log_in_btn}>Зарегистрироваться</button>
+        <button type="submit" className={`${s.log_in_btn}`}>Зарегистрироваться</button>
         {/*<div>{!isValid && <p>Все поля обязательны к заполнению!</p>}</div>*/}
         <div>{errorMessage && <p style={{fontSize: '18px', color: 'red', margin: 0}}>{errorMessage}</p>}</div>
     </form>

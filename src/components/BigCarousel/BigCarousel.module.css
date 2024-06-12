@@ -103,7 +103,7 @@
     width: 100px;
     height: 30px;
     position: absolute;
-    z-index: 7;
+
     bottom: -33px;
     left: 50%;
     transform: translateX(-50%);
@@ -124,6 +124,13 @@
 }
 
 .active, .dot:hover {
+    width: 24px;
+    height: 24px;
+    background: #AD6A75;
+    border-radius: 38px;
+}
+
+.activeDot{
     width: 24px;
     height: 24px;
     background: #AD6A75;
@@ -583,7 +590,6 @@
         width: 100px;
         height: 30px;
         position: absolute;
-        z-index: 7;
         bottom: -33px;
         left: 50%;
         transform: translateX(-50%);
@@ -710,7 +716,7 @@
         width: 100px;
         height: 30px;
         position: absolute;
-        z-index: 7;
+
         bottom: -33px;
         left: 50%;
         transform: translateX(-50%);

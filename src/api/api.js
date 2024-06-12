@@ -104,12 +104,10 @@ export const cartAPI = {
 }
 
 export const orderAPI = {
-    makeAnOrder(userToken, orderItems, orderInfo, cartMoney) {
+    makeAnOrder(userToken, order) {
 
         return axios.post(`${baseAppURL}products-app/order/`, {
-            orderItems: orderItems,
-            orderInfo: orderInfo,
-            cartMoney: cartMoney,
+            order: order
         }, {
             headers: {
                 'Authorization': `Token ${userToken}`
@@ -125,5 +123,6 @@ export const orderAPI = {
         })
     }
 }
+
 
 

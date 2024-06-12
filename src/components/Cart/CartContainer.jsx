@@ -13,6 +13,7 @@ import {deleteCartItemAC, deleteProductFromCartAC, setCostAC, setDiscountAC} fro
 
 
 const CartContainer = (props) => {
+    debugger
     const dispatch = useDispatch()
     const carts = useSelector((state) => state.cart.cartItems)
     const cartsProducts = useSelector((state) => state.cart.cartsProducts)
@@ -23,7 +24,6 @@ const CartContainer = (props) => {
         dispatch(getCartsTC(userToken.value))
 
     }, [userToken.value]);
-
 
     const deleteCartItem = async (cartItemId) => {
         try {
@@ -60,7 +60,7 @@ const CartContainer = (props) => {
         dispatch(decrementCartItemQuantityTC(userToken.value, cart_id))
         console.log('loggggggggggggggggg')
     }
-
+    console.log('carts', carts)
     return <Cart incrementCartQuantity={incrementCartQuantity}
                  decrementCartQuantity={decrementCartQuantity}
                  userToken={userToken}

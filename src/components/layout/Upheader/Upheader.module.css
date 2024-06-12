@@ -22,11 +22,13 @@
 .upheader_slider_previous {
     background-color: white;
     border: 0;
+    cursor: pointer;
 }
 
 .upheader_slider_next {
     background-color: white;
     border: 0;
+    cursor: pointer;
 }
 
 .upheader_slider_line {
@@ -43,6 +45,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    flex-shrink: 0;
     align-items: center;
     width: 156px;
 }
